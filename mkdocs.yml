@@ -1,0 +1,19 @@
+site_name: XBee SDK Documentation
+pages:
+- [index.md, Home]
+- [about.md, About]
+- [license.md, License]
+- [api_doc/pg/index.md, 'XBee Firmware Library Documentation', '1. Programming Guide']
+- [api_doc/index.md, 'XBee Firmware Library Documentation', '2. API Reference']
+- [doc/introduction.md, "XBee Extensions User's Guide", '1. Introduction']
+- [doc/concepts.md, "XBee Extensions User's Guide", '2. Concepts']
+- [doc/working_xbee_extensions.md, "XBee Extensions User's Guide", '3. Working with the XBee extensions']
+- [doc/developing_xbee_prj.md, "XBee Extensions User's Guide", '4. Developing a project']
+- [doc/flashing_bootloader.md, "XBee Extensions User's Guide", '5. Flashing a debuggable bootloader']
+- [doc/idigi_pxbee.md, "XBee Extensions User's Guide", '6. The programmable XBee and iDigi']
+- [doc/exporting_importing.md, "XBee Extensions User's Guide", '7. Exporting and importing XBee projects']
+- [doc/migrating.md, "XBee Extensions User's Guide", '8. Migrating my XBee projects to 1.5 version']
+- [doc/troubleshooting.md, "XBee Extensions User's Guide", '9. Troubleshooting']
+- [doc/tips_tricks.md, "XBee Extensions User's Guide", '10. Tips & Tricks']
+- [doc/limitations.md, "XBee Extensions User's Guide", '11. Known issues and limitations']
+theme: readthedocs
