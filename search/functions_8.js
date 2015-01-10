@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['i2c_5fconfig',['i2c_config',['../group__api__i2c.html#gace5a8ac8dedb003502fddc2c068ba654',1,'i2c_config(uint8_t config):&#160;i2c.c'],['../group__api__i2c.html#gace5a8ac8dedb003502fddc2c068ba654',1,'i2c_config(uint8_t config):&#160;i2c.c']]],
+  ['i2c_5fread',['i2c_read',['../group__api__i2c.html#ga7f717138060bfb63b1031939a4eeebd5',1,'i2c_read(void *buf, size_t len):&#160;i2c.c'],['../group__api__i2c.html#ga7f717138060bfb63b1031939a4eeebd5',1,'i2c_read(void *buf, size_t len):&#160;i2c.c']]],
+  ['i2c_5fset_5faddr',['i2c_set_addr',['../group__api__i2c.html#gac332dceec4c83d26f03e7736098ab3f0',1,'i2c_set_addr(uint8_t addr):&#160;i2c.c'],['../group__api__i2c.html#gac332dceec4c83d26f03e7736098ab3f0',1,'i2c_set_addr(uint8_t addr):&#160;i2c.c']]],
+  ['i2c_5fwrite',['i2c_write',['../group__api__i2c.html#ga76b8874edaeb6e914b44bdcf3e439135',1,'i2c_write(const void *buf, size_t len):&#160;i2c.c'],['../group__api__i2c.html#ga76b8874edaeb6e914b44bdcf3e439135',1,'i2c_write(const void *buf, size_t len):&#160;i2c.c']]],
+  ['i2c_5fwrite_5fno_5fstop',['i2c_write_no_stop',['../group__api__i2c.html#gaade06eaa089774a498d39b126eabeedf',1,'i2c_write_no_stop(const void *buf, size_t len):&#160;i2c.c'],['../group__api__i2c.html#gaade06eaa089774a498d39b126eabeedf',1,'i2c_write_no_stop(const void *buf, size_t len):&#160;i2c.c']]],
+  ['icapture_5fcaptcount_5fto_5fusec',['icapture_captcount_to_usec',['../group__api__input__capture.html#gae4bdcf573c02a1eafe0f6bcc26c2749f',1,'icapture_captcount_to_usec(xpin_t pin, size_t captcount):&#160;icapture.c'],['../group__api__input__capture.html#gae4bdcf573c02a1eafe0f6bcc26c2749f',1,'icapture_captcount_to_usec(xpin_t pin, size_t captcount):&#160;icapture.c']]],
+  ['icapture_5fconfig',['icapture_config',['../group__api__input__capture.html#ga698688ab312df7ddb165ee0e04598825',1,'icapture_config(xpin_t pin, uint8_t edge, bool_t enable, uint32_t max_u_secs):&#160;icapture.c'],['../group__api__input__capture.html#ga698688ab312df7ddb165ee0e04598825',1,'icapture_config(xpin_t pin, uint8_t edge, bool_t enable, uint32_t max_u_secs):&#160;icapture.c']]],
+  ['icapture_5fenable',['icapture_enable',['../group__api__input__capture.html#ga8b1acbf9eaea3a63129398a6570d6ca4',1,'icapture_enable(xpin_t pin, uint8_t enable):&#160;icapture.c'],['../group__api__input__capture.html#ga8b1acbf9eaea3a63129398a6570d6ca4',1,'icapture_enable(xpin_t pin, uint8_t enable):&#160;icapture.c']]],
+  ['icapture_5fget_5fmode',['icapture_get_mode',['../group__api__input__capture.html#gadadfb0c2bd91019952ac51a5e7a3af2e',1,'icapture_get_mode(xpin_t pin):&#160;icapture.c'],['../group__api__input__capture.html#gadadfb0c2bd91019952ac51a5e7a3af2e',1,'icapture_get_mode(xpin_t pin):&#160;icapture.c']]],
+  ['icapture_5firq_5fenable',['icapture_irq_enable',['../group__api__input__capture.html#ga38851473da7b5f6de183ce4ead840075',1,'icapture_irq_enable(xpin_t pin, uint8_t enable):&#160;icapture.c'],['../icapture_8h.html#ad3b555bde66be4c0db16811300a9e5d6',1,'icapture_irq_enable(xpin_t pin, bool_t enable):&#160;icapture.h']]],
+  ['icapture_5firq_5fxpin12',['icapture_irq_xpin12',['../icapture_8c.html#aca1233401dd9c803382194d47eb7e459',1,'icapture.c']]],
+  ['icapture_5firq_5fxpin17',['icapture_irq_xpin17',['../icapture_8c.html#ab919725ced256d6d0f9516c31d2256c2',1,'icapture.c']]],
+  ['icapture_5firq_5fxpin20',['icapture_irq_xpin20',['../icapture_8c.html#aaa3a3b1ff81b14b76329d862278d9f7f',1,'icapture.c']]],
+  ['icapture_5firq_5fxpin25',['icapture_irq_xpin25',['../icapture_8c.html#a65eed5aa2f1958a4dd388dcbe7ec5e0c',1,'icapture.c']]],
+  ['icapture_5firq_5fxpin26',['icapture_irq_xpin26',['../icapture_8c.html#a37635aa8703fbb3da557ecffe200f2ae',1,'icapture.c']]],
+  ['icapture_5firq_5fxpin30',['icapture_irq_xpin30',['../icapture_8c.html#a10a13464aab63129ce696a7ef39059bc',1,'icapture.c']]],
+  ['icapture_5firq_5fxpin33',['icapture_irq_xpin33',['../icapture_8c.html#a098ed2fcd5028747e4cd501c2d406b98',1,'icapture.c']]],
+  ['icapture_5firq_5fxpin4',['icapture_irq_xpin4',['../icapture_8c.html#a774fc8352d1d31fca663bff724db391f',1,'icapture.c']]],
+  ['icapture_5firq_5fxpin5',['icapture_irq_xpin5',['../icapture_8c.html#a4c0810053b5b6dd5516b1ef4be7a45e5',1,'icapture.c']]],
+  ['icapture_5firq_5fxpin6',['icapture_irq_xpin6',['../icapture_8c.html#a2028213fb3608e00780529e783e773a6',1,'icapture.c']]],
+  ['icapture_5firq_5fxpin7',['icapture_irq_xpin7',['../icapture_8c.html#a292d0a6ecb59eb7d5333d778475d8f62',1,'icapture.c']]],
+  ['icapture_5fset_5fmode',['icapture_set_mode',['../group__api__input__capture.html#ga83e175e2fd5f5ae476a7ff30fc65dfcf',1,'icapture_set_mode(xpin_t pin, uint8_t mode):&#160;icapture.c'],['../group__api__input__capture.html#ga83e175e2fd5f5ae476a7ff30fc65dfcf',1,'icapture_set_mode(xpin_t pin, uint8_t mode):&#160;icapture.c']]],
+  ['is_5fcbuf_5femtpy',['is_cbuf_emtpy',['../cbuffer_8h.html#a74e35fa03e15ab3c87e930b487b9457c',1,'is_cbuf_emtpy(struct cbuf *cb):&#160;cbuffer.c'],['../cbuffer_8c.html#a74e35fa03e15ab3c87e930b487b9457c',1,'is_cbuf_emtpy(struct cbuf *cb):&#160;cbuffer.c']]],
+  ['is_5fcbuf_5ffull',['is_cbuf_full',['../cbuffer_8h.html#a202af5f01b14033c4dd46016940986e2',1,'is_cbuf_full(struct cbuf *cb):&#160;cbuffer.c'],['../cbuffer_8c.html#a202af5f01b14033c4dd46016940986e2',1,'is_cbuf_full(struct cbuf *cb):&#160;cbuffer.c']]]
+];
