@@ -6,6 +6,6 @@ Visit this project's [Github repo](https://github.com/exsilium/xbee-sdk-doc) for
 
 ## Versions
 
-* **XBee Firmware Library Documentation** - 1.5.7
-* **XBee Extensions User's Guide** - 1.5.0
+* **XBee Firmware Library Documentation** - 1.6.0
+* **XBee Extensions User's Guide** - 1.6.0
 
