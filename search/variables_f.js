@@ -20,5 +20,6 @@ var searchData=
   ['profile_5fid',['profile_id',['../group__wpan__aps.html#ga5ca7f19e5697de2baf0e2147a41a5792',1,'wpan_envelope_t::profile_id()'],['../group__wpan__aps.html#ga5ca7f19e5697de2baf0e2147a41a5792',1,'wpan_endpoint_table_entry_t::profile_id()']]],
   ['profile_5fid_5fbe',['profile_id_be',['../group__xbee__wpan.html#ga73cbe261e510134d8e042f518a939718',1,'wpan.h']]],
   ['profile_5fid_5fle',['profile_id_le',['../group__zdo.html#ga9f7e601c7386ae55f5e6d5ec558af125',1,'zdo.h']]],
-  ['pullup_5fresistor',['pullup_resistor',['../hwinit_8c.html#ae1748d8a3694e457a1ed472cf60c0b71',1,'hwinit.c']]]
+  ['pull_5fdirection',['pull_direction',['../hwinit_8c.html#a47ac43ebc539179a7b7cd8cb7258c3a3',1,'hwinit.c']]],
+  ['pullup_5fresistor',['pullup_resistor',['../hwinit_8c.html#a219304355a76199174e044d8366942ad',1,'hwinit.c']]]
 ];

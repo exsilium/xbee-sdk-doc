@@ -1,6 +1,7 @@
 var searchData=
 [
   ['scanf_5fvoid',['scanf_void',['../uart_8c.html#a258a184035f77b48f36008d70453aa73',1,'scanf_void(const char *s,...):&#160;uart.c'],['../system_8h.html#a258a184035f77b48f36008d70453aa73',1,'scanf_void(const char *s,...):&#160;uart.c']]],
+  ['serial_5ftx_5fto_5fradio_5ftimeout_5fhandler',['serial_tx_to_radio_timeout_handler',['../group__hal__hcs08.html#ga1e4e9a770ee740c7b1d42218743f7089',1,'xbee_serial_hcs08.c']]],
   ['spi_5fconfig',['spi_config',['../group__api__spi.html#ga7878f1beb91c8646defb141b454fd278',1,'spi_config(uint8_t brpree, uint8_t brdiv, uint8_t config):&#160;spi.c'],['../group__api__spi.html#ga7878f1beb91c8646defb141b454fd278',1,'spi_config(uint8_t brpree, uint8_t brdiv, uint8_t config):&#160;spi.c']]],
   ['spi_5ftransfer',['spi_transfer',['../group__api__spi.html#ga2299a37adc4febf0d67f65151d071c03',1,'spi_transfer(uint8_t ss_num, const void *txbuf, void *rxbuf, size_t len):&#160;spi.c'],['../group__api__spi.html#ga2299a37adc4febf0d67f65151d071c03',1,'spi_transfer(uint8_t ss_num, const void *txbuf, void *rxbuf, size_t len):&#160;spi.c']]],
   ['start_5fota_5ffw_5fupdate',['start_ota_fw_update',['../endpoints_8c.html#aa96172c98c35041446ba983da0a32d9e',1,'start_ota_fw_update(addr64 *host_address, app_rst_casuses_t reason):&#160;ota_fw_update.c'],['../ota__fw__update_8c.html#aa96172c98c35041446ba983da0a32d9e',1,'start_ota_fw_update(addr64 *host_address, app_rst_casuses_t reason):&#160;ota_fw_update.c']]],
