@@ -2,6 +2,7 @@ site_name: XBee SDK Documentation
 pages:
 - [index.md, Home]
 - [about.md, About]
+- [release_notes.md, 'Release Notes']
 - [license.md, License]
 - [api_doc/pg/index.md, 'XBee Firmware Library Documentation', '1. Programming Guide']
 - [api_doc/index.md, 'XBee Firmware Library Documentation', '2. API Reference']

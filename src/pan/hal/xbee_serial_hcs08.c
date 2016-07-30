@@ -125,6 +125,10 @@ uint8_t _flags = 0;
 	#define XBEE_SER_CHECK(ptr)
 #endif
 
+#if defined SERIAL_TX_TO_RADIO_TIMEOUT_MS
+extern void serial_tx_to_radio_timeout_handler(void);
+#endif
+
 bool_t xbee_ser_invalid( xbee_serial_t *serial)
 {
 	if (serial)
@@ -159,6 +163,9 @@ int xbee_ser_write( xbee_serial_t *serial, const void FAR *buffer,
 	int length)
 {
 	int wrote = length;
+#if defined SERIAL_TX_TO_RADIO_TIMEOUT_MS && defined ENABLE_RTC
+	uint32_t timeout_ms, current_ms;
+#endif
 
 	XBEE_SER_CHECK( serial);
 
@@ -183,12 +190,31 @@ int xbee_ser_write( xbee_serial_t *serial, const void FAR *buffer,
 		case SERIAL_PORT_SCI2:			// EM250
 			while (length--)
 			{
+#if defined SERIAL_TX_TO_RADIO_TIMEOUT_MS && defined ENABLE_RTC
+				current_ms = rtc_get_ms_uptime();
+				timeout_ms = current_ms + SERIAL_TX_TO_RADIO_TIMEOUT_MS;
+#endif
 				// SCI2S1_TDRE -- 0 = sending, 1 = ready for byte
 				// PTDD_PTDD6 -- 0 = clear to send, 1 = not clear
-				while (! SCI2S1_TDRE || PTDD_PTDD6)
+				while (
+#if defined SERIAL_TX_TO_RADIO_TIMEOUT_MS && defined ENABLE_RTC
+						current_ms < timeout_ms &&
+#endif
+						(! SCI2S1_TDRE || PTDD_PTDD6)
+					  )
 				{
 					__RESET_WATCHDOG();
+
+#if defined SERIAL_TX_TO_RADIO_TIMEOUT_MS && defined ENABLE_RTC
+					current_ms = rtc_get_ms_uptime();
+#endif
 				}
+#if defined SERIAL_TX_TO_RADIO_TIMEOUT_MS && defined ENABLE_RTC
+				if (current_ms >= timeout_ms)
+				{
+					serial_tx_to_radio_timeout_handler();
+				}
+#endif
 				SCI2D = *((const byte FAR *)buffer)++;
 			}
 			break;

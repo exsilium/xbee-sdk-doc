@@ -1,5 +1,5 @@
 /****************************************************************************
- * Copyright (C) 2011 - 2014 Digi International Inc, All Rights Reserved.
+ * Copyright (C) 2011 - 2015 Digi International Inc, All Rights Reserved.
  *
  * This software is provided as instructional material without charge 
  * by Digi International for use by its employees and customers
@@ -58,7 +58,6 @@ extern void icapture_irq_xpin20(size_t captcount);
 #endif /* defined(CONFIG_XBEE_THT) */
 
 #ifdef CONFIG_XBEE_SMT
-#define icapture_irq_xpin25 	tpm2_ch2_irq
 extern void icapture_irq_xpin5(size_t captcount);
 extern void icapture_irq_xpin7(size_t captcount);
 extern void icapture_irq_xpin25(size_t captcount);

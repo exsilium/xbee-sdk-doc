@@ -1,5 +1,5 @@
 /****************************************************************************
- * Copyright (C) 2012 - 2014 Digi International Inc, All Rights Reserved.
+ * Copyright (C) 2012 - 2015 Digi International Inc, All Rights Reserved.
  *
  * This software is provided as instructional material without charge 
  * by Digi International for use by its employees and customers
@@ -138,26 +138,6 @@ int pm_set_cpu_mode(pm_mode_t mode, uint32_t sleep_seconds)
 
 		SPMSC2_PPDE = 1; /* Enable STOP3 MODE */
 		pm_state = PM_MODE_STOP_3;
-
-		/* Set all internal pins to the same configuration to save power if they are outputs */
-		/* Connected to XPIN_30 in S2C and XPIN_17 in S2B */
-		PTADD_PTADD7 = PTBDD_PTBDD5;
-		PTAD_PTAD7 = PTBD_PTBD5;
-#ifdef CONFIG_XBEE_SMT
-		/* Connected to XPIN_8 */
-		PTBDD_PTBDD7 = PTADD_PTADD2;
-		PTBD_PTBD7 = PTAD_PTAD2;		
-#endif /* CONFIG_XBEE_SMT */
-#ifdef CONFIG_XBEE_S2C
-		/* Connected to XPIN_12 */
-		PTEDD_PTEDD7 = PTDDD_PTDDD0;
-		PTED_PTED7 = PTDD_PTDD0;
-
-		/* Connected to XPIN_28 */
-		PTDDD_PTDDD1 = PTDDD_PTDDD4;
-		PTDD_PTDD1 = PTDD_PTDD4;
-
-#endif /* CONFIG_XBEE_S2C */
 		
 #ifdef ENABLE_WAKEUP_FROM_UART
 		SCI1BDH_RXEDGIE = 1; /* Enable RxD Interrupt */
@@ -196,17 +176,8 @@ int pm_set_cpu_mode(pm_mode_t mode, uint32_t sleep_seconds)
 #ifdef ENABLE_WAKEUP_FROM_UART
 		SCI1BDH_RXEDGIE = 0; /* Disable RxD Interrupt */
 #endif
-		/* Restore all internal pins to inputs (default config) */
-		PTADD_PTADD7 = 0;
+
 		PTDDD_PTDDD6 = 0; /* Radio_CTS  */
-#ifdef CONFIG_XBEE_SMT
-		PTBDD_PTBDD7 = 0;
-#endif
-#ifdef CONFIG_XBEE_S2C
-		PTEDD_PTEDD7 = 0;
-		PTBDD_PTBDD7 = 0;
-		PTDDD_PTDDD1 = 0;
-#endif /* CONFIG_XBEE_S2C */
 		break;
 	}
 	return 0;

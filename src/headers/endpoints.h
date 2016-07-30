@@ -1,5 +1,5 @@
 /****************************************************************************
- * Copyright (C) 2012 - 2014 Digi International Inc, All Rights Reserved.
+ * Copyright (C) 2012 - 2015 Digi International Inc, All Rights Reserved.
  *
  * This software is provided as instructional material without charge 
  * by Digi International for use by its employees and customers

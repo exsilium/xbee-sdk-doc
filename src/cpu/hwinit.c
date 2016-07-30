@@ -1,5 +1,5 @@
 /****************************************************************************
- * Copyright (C) 2011 - 2014 Digi International Inc, All Rights Reserved.
+ * Copyright (C) 2011 - 2015 Digi International Inc, All Rights Reserved.
  *
  * This software is provided as instructional material without charge 
  * by Digi International for use by its employees and customers
@@ -56,10 +56,11 @@ const uint8_t ATWR_cmd[] = {0x7e, 0x00, 0x04, 0x08, 0x0f, 0x57, 0x52, 0x3f};
 
 const uint8_t ATBPD_cmd[] = {0x7e, 0x00, 0x04, 0x09, 0x01, 0x50, 0x44, 0x61};
 const uint8_t ATBPR_cmd[] = {0x7e, 0x00, 0x04, 0x09, 0x01, 0x50, 0x52, 0x53};
-/* 	S2B: PR = 16bit	PD = don't exist
-	S2C: PR = 16bit	PD = 16bits
-	S8:  PR = 32bit	PD = 32bits
-	S3B: PR = 16bit	PD = 16bits (not documented)
+/* 	S2B:     PR = 16bit	PD = don't exist
+	S2C:     PR = 16bit	PD = 16bits
+	S8:      PR = 32bit	PD = 32bits
+	S3B:     PR = 16bit	PD = 16bits (not documented)
+	S2CTH:   PR = 16bit	PD = 16bits
  */
 #ifndef CONFIG_XBEE_S8		
 const uint8_t ATBPD_resp_fix[] = {0x7e, 0x00, 0x07, 0x88, 0x01, 0x50, 0x44, 0x00};
@@ -127,12 +128,14 @@ void radio_gpio_init(uint32_t *pull_direction, uint32_t *pullup_resistor)
 #endif
 /* XPIN_4: */
 #ifdef XPIN_4_USED
+	*pullup_resistor &= ~shift_xpin_4;
 	(void)xbee_cmd_simple(&xdev, "P2", 0);		/* Disable PWM2/DIO12 */
 #endif
 /* XPIN_5: Not shared */
 /* XPIN_6: */
 #ifdef XPIN_6_USED
 #ifndef ENABLE_RSSI_PWM
+	*pullup_resistor &= ~shift_xpin_6;
 	(void)xbee_cmd_simple(&xdev, "P0", 0);		/* Disable PWM0/RSSIM/DIO10 */
 #endif
 #endif
@@ -154,7 +157,7 @@ void radio_gpio_init(uint32_t *pull_direction, uint32_t *pullup_resistor)
 	/* Command not implemented according to datasheet */
 	/* SLEEP_RQ#/DIO8 = Digital input */
 	/*(void)xbee_cmd_simple(&xdev, "D8", 3); */
-#elif defined (CONFIG_XBEE_S3B)
+#elif defined (CONFIG_XBEE_S3B) || defined (CONFIG_XBEE_S2CTH)
 	(void)xbee_cmd_simple(&xdev, "D8", 3);		/* SLEEP_RQ#/DIO8 = Digital input */	
 #endif
 #else
@@ -165,7 +168,7 @@ void radio_gpio_init(uint32_t *pull_direction, uint32_t *pullup_resistor)
 	/* Command not implemented according to datasheet */
 	/* Disable SLEEP_RQ#/DIO8 */
 	/* (void)xbee_cmd_simple(&xdev, "D8", 0); */
-#elif defined (CONFIG_XBEE_S3B)
+#elif defined (CONFIG_XBEE_S3B) || defined (CONFIG_XBEE_S2CTH)
 	(void)xbee_cmd_simple(&xdev, "D8", 0);		/* Disable SLEEP_RQ#/DIO8 */
 #endif
 #endif
@@ -190,13 +193,13 @@ void radio_gpio_init(uint32_t *pull_direction, uint32_t *pullup_resistor)
 	/* Command not implemented according to datasheet */
 	/* Disable ON_SLEEP#/DIO7 */
 	/* (void)xbee_cmd_simple(&xdev, "D9", 0);	*/
-#elif defined (CONFIG_XBEE_S3B)
+#elif defined (CONFIG_XBEE_S3B) || defined (CONFIG_XBEE_S2CTH)
 #ifndef ENABLE_GPIO_IRQ_XPIN_13
 	/* S2B/S2C don't really remove pulls when in mode 0 so disable pulls here */
 	*pullup_resistor &= ~shift_xpin_13;
 #endif /* ifndef ENABLE_GPIO_IRQ_XPIN_13 */
 	(void)xbee_cmd_simple(&xdev, "D9", 0);		/* Disable ON_SLEEP#/DIO7 */
-#endif /* CONFIG_XBEE_S2B */
+#endif
 #endif /* ENABLE_ON_SLEEP */
 #endif /* XPIN_13_USED */
 /* XPIN_14: Not shared */
@@ -221,6 +224,7 @@ void radio_gpio_init(uint32_t *pull_direction, uint32_t *pullup_resistor)
 #endif
 /* XPIN_17: */
 #ifdef XPIN_17_USED
+	*pullup_resistor &= ~shift_xpin_17;	
 	(void)xbee_cmd_simple(&xdev, "D3", 0);		/* Disable AD3/DIO3 */
 #endif
 /* XPIN_18: */
@@ -266,6 +270,10 @@ void radio_gpio_init(uint32_t *pull_direction, uint32_t *pullup_resistor)
 						orPR19 | orPR20;
 	*pullup_resistor &= andPR7 & andPR9 & andPR11 & andPR13 & andPR15 & 
 						andPR18 & andPR19 & andPR20;
+
+    /* remove RTS_RADIO# pull as we tend to leave it configured as disabled in the radio 
+     * (pulls still work in this mode) and the CPU is driving this pin mostly to 0 */
+	*pullup_resistor &= ~(1<<5); 
 	
 	/* Apply Pull configuration */
 #ifndef CONFIG_XBEE_S2B
@@ -292,12 +300,14 @@ void radio_gpio_init(uint32_t *pull_direction, uint32_t *pullup_resistor)
 #endif
 /* XPIN_5: */
 #ifdef XPIN_5_USED
+	*pullup_resistor &= ~shift_xpin_5;
 	(void)xbee_cmd_simple(&xdev, "P2", 0);		/* Disable DIO12 */
 #endif
 /* XPIN_6: Not shared */
 /* XPIN_7: */
 #ifdef XPIN_7_USED
 #ifndef ENABLE_RSSI_PWM
+	*pullup_resistor &= ~shift_xpin_7;
 	(void)xbee_cmd_simple(&xdev, "P0", 0);		/* Disable PWM RSSI/DIO10 */
 #endif
 #endif
@@ -405,6 +415,7 @@ void radio_gpio_init(uint32_t *pull_direction, uint32_t *pullup_resistor)
 #endif
 /* XPIN_30: */
 #ifdef XPIN_30_USED
+	*pullup_resistor &= ~shift_xpin_30;	
 	(void)xbee_cmd_simple(&xdev, "D3", 0);		/* Disable AD3/DIO3 */
 #endif
 /* XPIN_31: */
@@ -455,6 +466,10 @@ void radio_gpio_init(uint32_t *pull_direction, uint32_t *pullup_resistor)
 	*pullup_resistor &= andPR8 & andPR10 & andPR24 & andPR26 & andPR28 & 
 						andPR31 & andPR32 & andPR33;
 
+    /* remove RTS_RADIO# pull as we tend to leave it configured as disabled in the radio 
+     * (pulls still work in this mode) and the CPU is driving this pin mostly to 0 */
+	*pullup_resistor &= ~(1<<5); 
+
 	/* Apply Pull configuration */
 	(void)xbee_cmd_simple(&xdev, "PD", *pull_direction);
 	(void)xbee_cmd_simple(&xdev, "PR", *pullup_resistor);
@@ -466,7 +481,11 @@ void gpio_init(void)
 	/* Configure unused internal pins as outputs to reduce power consumption */
 #ifdef CONFIG_XBEE_THT
 	PTADD |= 0x40;
+#if !defined(CONFIG_XBEE_S2CTH)
 	PTBDD |= 0xC0;
+#else
+	PTBDD |= 0x40;
+#endif
 	PTCDD |= 0x0C;
 	PTDDD |= 0x0F;
 	
@@ -482,6 +501,10 @@ void gpio_init(void)
 	PTEDD |= 0xBF;
 	PTED |= 0xBF;
 #endif /* CONFIG_XBEE_S3B */
+#ifdef CONFIG_XBEE_S2CTH
+	PTEDD |= 0xCF;
+	PTED |= 0xCF;
+#endif /* CONFIG_XBEE_S3B */
 #endif /* CONFIG_XBEE_THT */
 #ifdef CONFIG_XBEE_SMT
 	PTADD |= 0x40;
@@ -492,10 +515,10 @@ void gpio_init(void)
 	PTBD |= 0x40;
 	PTCD |= 0x0C;
 #ifdef CONFIG_XBEE_S2C
-	PTDDD |= 0x0C;
-	PTEDD |= 0x10;
-	PTDD |= 0x0C;
-	PTED |= 0x10;
+	PTDDD |= 0x0E;
+	PTEDD |= 0x90;
+	PTDD |= 0x0E;
+	PTED |= 0x90;
 #endif /* CONFIG_XBEE_S2C */
 #ifdef CONFIG_XBEE_S8
 	PTDDD |= 0x0E;
@@ -846,7 +869,7 @@ static uint32_t radio_switch_to_api_mode_and_autorate(void)
 		}
 #endif
 		
-#ifndef CONFIG_XBEE_S2B /* Enabled for all modules supporting 'atAP' command: S2C, S8, S3B */
+#ifndef CONFIG_XBEE_S2B /* Enabled for all modules supporting 'atAP' command: S2C, S8, S3B, S2CTH */
 		
 		delay_ticks(HZ / 4);	/* guard time */
 				
@@ -1051,15 +1074,23 @@ void sys_app_banner(void)
 #define	XBEE_VERSION	"S8"
 #elif defined(CONFIG_XBEE_S3B)
 #define	XBEE_VERSION	"S3B"
+#elif defined(CONFIG_XBEE_S2CTH)
+#define	XBEE_VERSION	"S2CTH"
 #endif
 	
 	char addr[ADDR64_STRING_LENGTH];
+
+    sys_watchdog_reset();
+
 	printf("\n\n---------------------------------------------\n");
 	printf("  o Application: %s\n", APP_VERSION_STRING);
 	printf("  o XBee module: %s %dkB flash\n", XBEE_VERSION, CONFIG_XBEE_FLASH_LEN);
 	printf("  o HW address : %s\n", addr64_format(addr, &xdev.wpan_dev.address.ieee));
 	printf("  o HW version : 0x%x\n", xdev.hardware_version);
 	printf("  o FW version : 0x%lx", xdev.firmware_version);
+
+    sys_watchdog_reset();
+
 	switch ((unsigned) (xdev.firmware_version & XBEE_NODETYPE_MASK)) {
 		case XBEE_NODETYPE_COORD:	
 			printf(" (coordinator)\n");
@@ -1098,6 +1129,8 @@ void sys_app_banner(void)
 	}
 #endif
 	printf("---------------------------------------------\n\n");
+
+    sys_watchdog_reset();
 #undef XBEE_VERSION
 #endif /* (ENABLE_STDIO_PRINTF_SCANF == 1) */
 }

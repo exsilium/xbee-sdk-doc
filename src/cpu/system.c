@@ -1,5 +1,5 @@
 /****************************************************************************
- * Copyright (C) 2010 - 2014 Digi International Inc, All Rights Reserved.
+ * Copyright (C) 2010 - 2015 Digi International Inc, All Rights Reserved.
  *
  * This software is provided as instructional material without charge 
  * by Digi International for use by its employees and customers
@@ -82,6 +82,11 @@ static void sys_gpio_init(void)
 	/* Configure #RESET_RADIO line as output and set it to 1 */
 	PTCD_PTCD4 = 1;
 	PTCDD_PTCDD4 = 1;
+
+	/* Enable pull-up in the pin that connects cpu-rx and radio-tx.
+	 * Required in S2C radio firmwares that support use radio DOUT to detect
+	 * SPI boot */
+	PTCPE_PTCPE6 = 1;
 }
 
 static void sys_radio_reset(void)

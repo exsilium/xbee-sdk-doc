@@ -1,5 +1,5 @@
 /****************************************************************************
- * Copyright (C) 2012 - 2014 Digi International Inc, All Rights Reserved.
+ * Copyright (C) 2012 - 2015 Digi International Inc, All Rights Reserved.
  *
  * This software is provided as instructional material without charge 
  * by Digi International for use by its employees and customers
@@ -35,21 +35,27 @@
  * Datasheet */
 #ifdef CONFIG_XBEE_THT
 
+#define shift_xpin_4  (1<<10)
+#define shift_xpin_6  (1<<11)
 #define shift_xpin_7  (1<<12)
 #define shift_xpin_9  (1<<6)
 #define shift_xpin_11 (1<<0)
 #define shift_xpin_13 (1<<9)
 #define shift_xpin_15 (1<<8)
+#define shift_xpin_17 (1<<1)
 #define shift_xpin_18 (1<<2)
 #define shift_xpin_19 (1<<3)
 #define shift_xpin_20 (1<<4)
 
 #elif defined (CONFIG_XBEE_SMT)
+#define shift_xpin_5  (1<<10)
+#define shift_xpin_7  (1<<11)
 #define shift_xpin_8  (1<<12)
 #define shift_xpin_10 (1<<6)
 #define shift_xpin_24 (1<<0)
 #define shift_xpin_26 (1<<9)
 #define shift_xpin_28 (1<<8)
+#define shift_xpin_30 (1<<1)
 #define shift_xpin_31 (1<<2)
 #define shift_xpin_32 (1<<3)
 #define shift_xpin_33 (1<<4)
