@@ -13,11 +13,11 @@ This is the current list of issues and limitations regarding the Programmable XB
 
 * Depending on your graphic card and drivers, you may see that the module image of the Smart Editor's Layout view is not correctly drawn after some resizes. Resizing the dialog again may fix this problem.
 
-![Resize error](doc/images/img022a.jpg)
+![Resize error](images/img022a.jpg)
 
 * When creating a new iDigi using the link provided in the iDigi Configuration page, there could be	instances where the tooltips of the account creation page are not displayed correctly. This may be a result of the Internet Explorer version	you have installed on your PC. If you are experiencing this issue, we recommend that you go directly to [https://myaccount.digi.com](https://myaccount.digi.com) using an external web browser in order to ensure that all help tooltips are displayed correctly.
 
-![Create iDigi account](doc/images/img022c.jpg)
-![Tooltip error](doc/images/img022b.jpg)
+![Create iDigi account](images/img022c.jpg)
+![Tooltip error](images/img022b.jpg)
 
 </body>

@@ -17,7 +17,7 @@ Workbench windows can be opened simultaneously.
 
 The workspace is the directory where the user's projects, folders, and files are stored.
 
-Users can have more than one workspace. To switch to a different workspace, select ![Command link](doc/images/command_link.png) **File &gt; Switch Workspace &gt; Other...**.
+Users can have more than one workspace. To switch to a different workspace, select ![Command link](images/command_link.png) **File &gt; Switch Workspace &gt; Other...**.
 
 ## 2.1.3. Perspectives
 
@@ -28,9 +28,9 @@ Perspectives control which options display in certain menus and toolbars. These 
 can be changed to customize the perspective. A modified perspective can be saved as a custom perspective to 
 be opened later.
 
-To open a perspective from the menu, select ![Command link](doc/images/command_link.png) **Window &gt; Open Perspective &gt; Other...**. The active perspective appears in the upper-right of the workbench window.
+To open a perspective from the menu, select ![Command link](images/command_link.png) **Window &gt; Open Perspective &gt; Other...**. The active perspective appears in the upper-right of the workbench window.
 
-> ![Tip](doc/images/icon_tip.jpg) For more information about perspectives, consult the Eclipse Workbench User Guide. To access this guide from the menu, select <span class="menu">Help &gt; Help Contents</span>. Under <span class="menu">Additional Documents</span>, select <span class="menu">Workbench User Guide</span>, and see these topics: 
+> ![Tip](images/icon_tip.jpg) For more information about perspectives, consult the Eclipse Workbench User Guide. To access this guide from the menu, select <span class="menu">Help &gt; Help Contents</span>. Under <span class="menu">Additional Documents</span>, select <span class="menu">Workbench User Guide</span>, and see these topics: 
 
 > * **[Getting started &gt; Perspectives](http://help.eclipse.org/kepler/topic/org.eclipse.platform.doc.user/gettingStarted/qs-43.htm?cp=0_1_0_15)**
 > * **[Concepts &gt; Perspectives](http://help.eclipse.org/kepler/topic/org.eclipse.platform.doc.user/concepts/concepts-4.htm?cp=0_2_2)**
@@ -43,12 +43,12 @@ Each Workbench perspective contains one or more views and editors to define its 
 * A view is a visual component within the Workbench. Normally, only one instance of a  particular type of view may exist within a Workbench window. Views have their own toolbars.
 * An editor is also a visual component within the Workbench. It is used to edit or browse  a resource. Depending on the type of file being edited, the appropriate editor is displayed in the editor  area. Multiple instances of an editor type can exist within a Workbench window, either stacked or tiled.
 
-![Views &amp; Editors](doc/images/img002a.jpg)
+![Views &amp; Editors](images/img002a.jpg)
 
-To open a view from the menu, select ![Command link](doc/images/command_link.png) **Window &gt; Show View &gt; Other...**. All the views of the workbench are listed and organized by categories. Select the view to open.
+To open a view from the menu, select ![Command link](images/command_link.png) **Window &gt; Show View &gt; Other...**. All the views of the workbench are listed and organized by categories. Select the view to open.
 
 Different editors can be used to open a file. Generally, each file is opened inside its 
-default associated editor. To associate files with a different editor, select ![Command link](doc/images/command_link.png) **Window &gt; Preferences &gt; General &gt; Editors &gt; File Associations**.
+default associated editor. To associate files with a different editor, select ![Command link](images/command_link.png) **Window &gt; Preferences &gt; General &gt; Editors &gt; File Associations**.
 
 ## 2.1.5. Toolbars
 
@@ -56,19 +56,19 @@ There are four kinds of toolbars in the Workbench:
 
 * The main toolbar, or Workbench toolbar, is located at the top of the Workbench window  under the menu bar. Its content may change depending on the active perspective.
 
-![Workbench toolbar](doc/images/img002b.jpg)
+![Workbench toolbar](images/img002b.jpg)
 
 * The View toolbar is the toolbar associated to a certain view. Actions in a view's toolbar  apply only to the view in which it appears. Some views may also include a <span class="menu">Menu</span>  button (an inverted triangle), that contains more actions for that view.
 
-![](doc/images/img002c.jpg)
+![](images/img002c.jpg)
 
 * The Perspective toolbar quickly accesses perspectives that are currently open,  or opens new perspectives. This toolbar is usually located in the top-right corner, next to the main toolbar.
 
-![Perspective-switching toolbar](doc/images/img002d.jpg)
+![Perspective-switching toolbar](images/img002d.jpg)
 
 * The fast view toolbar is a toolbar which contains icons representing a set of fast views.  A fast view is a shortcut to a certain view. This toolbar usually appears in the bottom left corner of the Workbench window.
 
-![Fast view toolbar](doc/images/img002e.jpg)
+![Fast view toolbar](images/img002e.jpg)
 
 ## 2.1.6. Projects
 
@@ -84,7 +84,7 @@ structure.
 
 The main **Programmable XBee <script type="text/javascript">acronym("SDK")</script><acronym title="Software Development Kit">SDK</acronym>** directory has the following structure:
 
-![PXBee Directory Tree](doc/images/img002f.jpg)
+![PXBee Directory Tree](images/img002f.jpg)
 
 * *pxbee_api*: Contains versions of the XBee	firmware library.
 * *doc*: Contains documentation and other text files about the	environment.
@@ -99,7 +99,7 @@ The **pxbee_api** directory contains different versions of the
 The top level directory of each **XBee firmware library** 
 version source code distribution contains the following entities:
 
-![XBee firmware library directory tree](doc/images/img002g.jpg)
+![XBee firmware library directory tree](images/img002g.jpg)
 
 * *.utils*: Contains the output of the make.py script.
 * *examples*: Contains several sample applications using the XBee	firmware library. These examples will be accessible from CodeWarrior.
@@ -123,18 +123,18 @@ X.Y.Z      | Used to indicate a version, for example XBee firmware library X.Y.Z
 
 It also uses these frames and symbols:
 
-> ![Warning](doc/images/icon_warning.jpg) **This is a warning. It helps solve or to avoid common mistakes or problems.**
+> ![Warning](images/icon_warning.jpg) **This is a warning. It helps solve or to avoid common mistakes or problems.**
 
-> ![Tip](doc/images/icon_tip.jpg) *This is a hint. It contains useful information about a topic.*
+> ![Tip](images/icon_tip.jpg) *This is a hint. It contains useful information about a topic.*
 
-> ![Teach](doc/images/icon_teach.jpg) *This means that you have just learned how to do something.*
+> ![Teach](images/icon_teach.jpg) *This means that you have just learned how to do something.*
 
-> ![Clock](doc/images/icon_clock.jpg) *This message indicates the progress of a tutorial.*
+> ![Clock](images/icon_clock.jpg) *This message indicates the progress of a tutorial.*
 
-> ![Host session](doc/images/icon_host.jpg) `$ This is a host computer session`
+> ![Host session](images/icon_host.jpg) `$ This is a host computer session`
 **`$ Bold text indicates required input`**
 
-> ![Target session](doc/images/icon_target.jpg) `# This is a target session`
+> ![Target session](images/icon_target.jpg) `# This is a target session`
 **`# Bold text indicates required input`**
 
 `This is an excerpt from a file`

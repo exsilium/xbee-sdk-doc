@@ -4,16 +4,16 @@ Programmable XBee modules come from the factory with a locked bootloader, meanin
 
 From the **File** menu select **New &gt; Project...** option.
 
-![New Project menu](doc/images/img001f.jpg)
+![New Project menu](images/img001f.jpg)
 
 The **New Project wizard** is displayed. Select **XBee sample 
 application project** under the **Digi XBee** folder and click **Next** to start the wizard.
 
-![Zelect XBee Project Wizard](doc/images/img004h.jpg)
+![Zelect XBee Project Wizard](images/img004h.jpg)
 
 Configure the settings of the XBee module to be used in the **XBee Device settings** page.
 
-![XBee Sample wizard - Module settings page](doc/images/img012b.jpg)
+![XBee Sample wizard - Module settings page](images/img012b.jpg)
 
 * **Module type**. Choose between the XBee ZB (S2B) or XBee ZB (S2C) module.
 * **Memory size**. Select the memory size of your module, 32Kb or 128Kb.
@@ -22,21 +22,21 @@ Click **Next** to continue.
 
 **Sample selection** page lists available sample applications with full source code. It has automatically filtered the list to display only those examples compatible with the module settings you configured in the previous page.
 
-![XBee Sample wizard - Sample selection page](doc/images/img012a.jpg)
+![XBee Sample wizard - Sample selection page](images/img012a.jpg)
 
 Select the **Bootloader** project from the list and click **Next** to continue.
 
 The last page of the wizard shows a list of selected samples and a summary with the module settings. To make changes, click **Back**.
 
-![XBee Sample wizard - Review wizard page](doc/images/img012c.jpg)
+![XBee Sample wizard - Review wizard page](images/img012c.jpg)
 
 To create the bootloader project, click **Finish**.
 
 The bootloader project will display on the **Project Explorer** view and the *main.c* file will automatically open.
 
-![Project Explorer - Bootloader Project](doc/images/img012d.jpg)
+![Project Explorer - Bootloader Project](images/img012d.jpg)
 
-![Main file](doc/images/img012e.jpg)
+![Main file](images/img012e.jpg)
 
 The bootloader project has 2 build configurations, **Debug** and **Release**.
 
@@ -44,27 +44,27 @@ Building the project using the **Debug** configuration will generate a bootloade
 
 To do so, select the project in the **Project Explorer** view. Then, in the **Build** action of the main toolbar (the hammer), select the **Debug** option from its drop-down menu. 
 
-![Build project for debug](doc/images/img010a.jpg)
+![Build project for debug](images/img010a.jpg)
 
 The build process takes a while and displays its progress through a progress dialog and the **Console** view of the <script type="text/javascript">acronym("IDE")</script><acronym title="Integrated Development Environment">IDE</acronym>.
 
-![Progress dialog](doc/images/img012i.jpg)
+![Progress dialog](images/img012i.jpg)
 
-![Console progress](doc/images/img012f.jpg)
+![Console progress](images/img012f.jpg)
 
 With the binaries of the project generated for debug it is time to launch it. To do so select your project in the **Project Exporer** view, right click it and go to **Run As &gt; CodeWarrior Download** to launch the bootloader project in the XBee module.
 
-![CodeWarrior Download](doc/images/img016k.jpg)
+![CodeWarrior Download](images/img016k.jpg)
 
-> ![Tip](doc/images/icon_tip.jpg) *In the future, you can launch your project by clicking the **Run** button from the main toolbar.* ![Run button](doc/images/img009e.jpg)
+> ![Tip](images/icon_tip.jpg) *In the future, you can launch your project by clicking the **Run** button from the main toolbar.* ![Run button](images/img009e.jpg)
 
 If you get a message like the following, it means that the XBee module has a non-debuggable bootloader flashed. Click **Yes** to continue.
 
-![Erase dialog](doc/images/img012q.jpg)
+![Erase dialog](images/img012q.jpg)
 
 A progress dialog will display the status of this process.
 
-![Progress dialog](doc/images/img012j.jpg)
+![Progress dialog](images/img012j.jpg)
 
 Once the bootloader is successfully loaded, you can start creating applications and debug them.
 
@@ -77,19 +77,19 @@ the bootloader menu. Otherwise keep on reading.
 
 You can access the bootloader menu by opening a serial connection with the XBee module (mounted in a <script type="text/javascript">acronym("XBIB")</script><acronym title="XBee Interface Board">XBIB</acronym> device).
 
-To do so, you must configure a Serial Terminal using the **Terminal** view of the Digi XBee perspective. If you don't have it already displayed, you can do it by clicking on ![Command link](doc/images/command_link.png) **Window &gt; Show view &gt; Other...** and click on **Terminal view** under **Terminal** category.
+To do so, you must configure a Serial Terminal using the **Terminal** view of the Digi XBee perspective. If you don't have it already displayed, you can do it by clicking on ![Command link](images/command_link.png) **Window &gt; Show view &gt; Other...** and click on **Terminal view** under **Terminal** category.
 
-![Terminal view](doc/images/img012l.jpg)
+![Terminal view](images/img012l.jpg)
 
 Press the **Settings** button of the toolbar to access the Terminal settings.
 
-![Terminal settings](doc/images/img012o.jpg)
+![Terminal settings](images/img012o.jpg)
 
 Once there, configure the terminal with **Serial** as Connection type and specify the communication port and its settings.
 
-![Terminal settings dialog](doc/images/img012m.jpg)
+![Terminal settings dialog](images/img012m.jpg)
 
-> ![Tip](doc/images/icon_tip.jpg) *By default the serial port settings to communicate with the XBee device are the following:*
+> ![Tip](images/icon_tip.jpg) *By default the serial port settings to communicate with the XBee device are the following:*
 * **Baud Rate:** 9600
 * **Data Bits:** 8
 * **Stop Bits:** 1
@@ -99,13 +99,13 @@ Once there, configure the terminal with **Serial** as Connection type and specif
 
 Click **OK** to save the changes and press the **Connect** button to establish the serial port connection with the XBee module.
 
-![Terminal toolbar](doc/images/img012p.jpg)
+![Terminal toolbar](images/img012p.jpg)
 
-![Terminal connected](doc/images/img012n.jpg)
+![Terminal connected](images/img012n.jpg)
 
 Press **&lt;Enter&gt;** a couple of times to display the bootloader menu through the serial terminal.
 
-![Bootloader menu](doc/images/img013d.jpg)
+![Bootloader menu](images/img013d.jpg)
 
 ## 5.1.2. Bootloader options
 

@@ -27,9 +27,9 @@ Once the standard GPIO component is added to the Smart-Editor, you will need to 
 * **Enable Slew Rate**. Specify whether the slew rate will be enabled or disabled.
 * **Drive Strength**. Configure the drive strength to high or low.
 
-> ![Warning](doc/images/icon_warning.jpg) **Reset pin (_XPIN_5_ in _S2B_ &amp; _S3B_ modules or _XPIN_6_	in _S2C_ &amp; _S8_ modules) is only available as <u>INPUT</u>.**
+> ![Warning](../../doc/images/icon_warning.jpg) **Reset pin (_XPIN_5_ in _S2B_ &amp; _S3B_ modules or _XPIN_6_	in _S2C_ &amp; _S8_ modules) is only available as <u>INPUT</u>.**
 
-> ![Warning](doc/images/icon_warning.jpg) **BKGD pin (_XPIN_8_ in _S2B_ &amp; _S3B_ modules or _XPIN_9_	in _S2C_ &amp; _S8_ modules) is only available as <u>OUTPUT</u>.**
+> ![Warning](../../doc/images/icon_warning.jpg) **BKGD pin (_XPIN_8_ in _S2B_ &amp; _S3B_ modules or _XPIN_9_	in _S2C_ &amp; _S8_ modules) is only available as <u>OUTPUT</u>.**
 
 The component will be automatically initialized and configured by the hardware initialization process of the application.
 
@@ -45,7 +45,7 @@ Once you have initialized and configured the standard GPIO, you can read its val
 
 > This piece of code will read and save the value of XBee pin 7 of the module:
 
-> ![Host session](doc/images/icon_host.jpg) `gpio_get(XPIN_7);`
+> ![Host session](../../doc/images/icon_host.jpg) `gpio_get(XPIN_7);`
 
 * **gpio_set(xpin_t pin, bool_t val)**
 
@@ -55,9 +55,9 @@ Once you have initialized and configured the standard GPIO, you can read its val
 
 > This piece of code will set the value of XBee pin 7 of the module to high (1):
 
-> ![Host session](doc//images/icon_host.jpg) `gpio_set(XPIN_7, 1);`
+> ![Host session](../../doc/images/icon_host.jpg) `gpio_set(XPIN_7, 1);`
 
-> ![Warning](doc/images/icon_warning.jpg) **Notice that the XBee pin must be configured as output in order	to set it.**
+> ![Warning](../../doc/images/icon_warning.jpg) **Notice that the XBee pin must be configured as output in order	to set it.**
 
 * **gpio_toggle(xpin_t pin)**
 
@@ -67,11 +67,11 @@ Once you have initialized and configured the standard GPIO, you can read its val
 
 > This piece of code will invert the value of _gpio0_:
 
-> ![Host session](doc/images/icon_host.jpg) `gpio_toggle(gpio0);`
+> ![Host session](../../doc/images/icon_host.jpg) `gpio_toggle(gpio0);`
 
 > It is equivalent to **gpio_set(gpio0, !gpio_get(gpio0);**
 
-> ![Warning](doc/images/icon_warning.jpg) **Notice that the XBee pin must be configured as output in order to toggle it.**
+> ![Warning](../../doc/images/icon_warning.jpg) **Notice that the XBee pin must be configured as output in order to toggle it.**
 
 Finally, some applications may need to reconfigure the GPIO in runtime, to do so the API provides the following function:
 
@@ -89,7 +89,7 @@ Finally, some applications may need to reconfigure the GPIO in runtime, to do so
 
 > This piece of code configures _gpio0_ as an output with low drive_strenght:
 
-> ![Host session](doc/images/icon_host.jpg) `gpio_config(port0, GPIO_CFG_OUTPUT | GPIO_CFG_DRV_STR_LOW);`
+> ![Host session](../../doc/images/icon_host.jpg) `gpio_config(port0, GPIO_CFG_OUTPUT | GPIO_CFG_DRV_STR_LOW);`
 
 ## API Reference
 
@@ -120,9 +120,9 @@ Once the IRQ GPIO component is added to the Smart-Editor, you will need to confi
 * **Active level/edge:** determines whether the IRQ's active level/edge is high or low.
 * **Pin pull:** allows you to configure the internal pull resistor. Options are: _High_, _Low_ and _None_. However, this field differs between modules as some support pull-ups and pull-downs and some only support pull-ups.
 
-> ![Warning](doc/images/icon_warning.jpg) **The pull resistors are set by the radio microprocessor. The _PR_ and _PD_ AT parameters are set automatically by the application and should not be modified by the user in runtime.**
+> ![Warning](../../doc/images/icon_warning.jpg) **The pull resistors are set by the radio microprocessor. The _PR_ and _PD_ AT parameters are set automatically by the application and should not be modified by the user in runtime.**
 
-> ![Warning](doc/images/icon_warning.jpg) **Some pins do not support internal pull, if an unsupported pin is selected a WARNING message will appear in the _Problems_ tab when building the project.**
+> ![Warning](../../doc/images/icon_warning.jpg) **Some pins do not support internal pull, if an unsupported pin is selected a WARNING message will appear in the _Problems_ tab when building the project.**
 
 The Smart-Editor automatically includes the IRQ's callback code in the _main.c_ file. The IRQ acknowledge is made automatically. However, as it is executed in interrupt context, this callback should be as fast as possible or the application may crash due to a watchdog timeout. This should be taken into consideration for _Level_ interrupts especially as they may be called many times before the main for(;;) loop feed the _watchdog_.
 
@@ -140,7 +140,7 @@ Once the IRQ GPIO is initialized and configured, the user callback in _main.c_ w
 
 > The following piece of code disables all IRQs for one second and enables it again:
 
-> ![Host session](doc/images/icon_host.jpg)
+> ![Host session](../../doc/images/icon_host.jpg)
 
 ```
 gpio_irq_enable(FALSE);
@@ -156,7 +156,7 @@ gpio_irq_enable(TRUE);
 
 > The following piece of code disables _"button1"_ IRQ:
 
-> ![Host session](doc/images/icon_host.jpg) `gpio_enable_xpin_irq(button1, 0);`
+> ![Host session](../../doc/images/icon_host.jpg) `gpio_enable_xpin_irq(button1, 0);`
 
 ## API Reference
 
@@ -188,9 +188,9 @@ Once the GPIO port component is added to the Smart-Editor, you will need to conf
 * **Enable Slew Rate:** Specify whether the slew rate will be enabled or disabled.
 * **Drive Strength:** Configure the drive strength to high or low in case of output mode.
 
-> ![Warning](doc/images/icon_warning.jpg) **Reset pin (_XPIN_5_ in _S2B_ &amp; _S3B_ modules or _XPIN_6_ in _S2C_ &amp; _S8_ modules) is only available as <u>INPUT</u>.**
+> ![Warning](../../doc/images/icon_warning.jpg) **Reset pin (_XPIN_5_ in _S2B_ &amp; _S3B_ modules or _XPIN_6_ in _S2C_ &amp; _S8_ modules) is only available as <u>INPUT</u>.**
 
-> ![Warning](doc/images/icon_warning.jpg) **BKGD pin (_XPIN_8_ in _S2B_ &amp; _S3B_ modules or _XPIN_9_ in _S2C_ &amp; _S8_ modules) is only available as <u>OUTPUT</u>.**
+> ![Warning](../../doc/images/icon_warning.jpg) **BKGD pin (_XPIN_8_ in _S2B_ &amp; _S3B_ modules or _XPIN_9_ in _S2C_ &amp; _S8_ modules) is only available as <u>OUTPUT</u>.**
 
 The component will be automatically initialized and configured by the hardware initialization process of the application.
 
@@ -206,7 +206,7 @@ Once you have initialized and configured the GPIO port, you can read its value o
 
 > The following piece of code will read and save in the value of _port0_ in the _data_ variable:
 
-> ![Host session](doc/images/icon_host.jpg) `data = port_get(port0);`
+> ![Host session](../../doc/images/icon_host.jpg) `data = port_get(port0);`
 
 * **port_set(port_t port, uint8_t  val)**
 
@@ -216,9 +216,9 @@ Once you have initialized and configured the GPIO port, you can read its value o
 
 > The following piece of code will set the bit0 and bit1 pins of port "port0" to high level, and the other bits to low level:
 
-> ![Host session](doc/images/icon_host.jpg) `port_set(port0, 0x03);`
+> ![Host session](../../doc/images/icon_host.jpg) `port_set(port0, 0x03);`
 
-> ![Warning](doc/images/icon_warning.jpg) **The port must be configured as output in order to set it.**
+> ![Warning](../../doc/images/icon_warning.jpg) **The port must be configured as output in order to set it.**
 
 > There are also port bit-operations that can be used to set and get a single port bit:
 
@@ -230,7 +230,7 @@ Once you have initialized and configured the GPIO port, you can read its value o
 
 > The following piece of code will read the bit2 (3rd bit) of _port0_:
 
-> ![Host session](doc/images/icon_host.jpg) `port_bit_get(port0, 2);`
+> ![Host session](../../doc/images/icon_host.jpg) `port_bit_get(port0, 2);`
 
 * **port_bit_set(port_t port, uint8_t  bit, bool_t val)**
 
@@ -240,9 +240,9 @@ Once you have initialized and configured the GPIO port, you can read its value o
 
 > The following piece of code will set the bit2 (3rd bit) _port0_ to high level, leaving the other pins unaffected:
 
-> ![Host session](doc/images/icon_host.jpg) `port_set_bit(port0, 2, 1);`
+> ![Host session](../../doc/images/icon_host.jpg) `port_set_bit(port0, 2, 1);`
 
-> ![Warning](doc/images/icon_warning.jpg) **The port must be configured as output in order to set it.**
+> ![Warning](../../doc/images/icon_warning.jpg) **The port must be configured as output in order to set it.**
 
 Finally, some applications may need to reconfigure the port in runtime. To do so, the API provides the following function:
 
@@ -260,7 +260,7 @@ Finally, some applications may need to reconfigure the port in runtime. To do so
 
 > The following piece of code configures _port0_ as an output with low drive_strength:
 
-> ![Host session](doc/images/icon_host.jpg) `port_config(port0, GPIO_CFG_OUTPUT | GPIO_CFG_DRV_STR_LOW);`
+> ![Host session](../../doc/images/icon_host.jpg) `port_config(port0, GPIO_CFG_OUTPUT | GPIO_CFG_DRV_STR_LOW);`
 
 ## API Reference
 
@@ -301,13 +301,13 @@ In runtime, the ADC channels' values can be read with the following function.
 
 > The following piece of code will return the current value of _adc0_:
 
-> ![Host session](doc/images/icon_host.jpg) `adc0_value = adc_ch_read(adc0);`
+> ![Host session](../../doc/images/icon_host.jpg) `adc0_value = adc_ch_read(adc0);`
 
 ### - Converting read value
 
 The conversion between read value and voltage is made using the following formula:
 
-> ![Host session](doc/images/icon_host.jpg) `Voltage = VRef / FS x Read Value`
+> ![Host session](../../doc/images/icon_host.jpg) `Voltage = VRef / FS x Read Value`
 
 Values for the above formula are:
 
@@ -321,7 +321,7 @@ Values for the above formula are:
 
 > For a **Vref** = 3.3 V and a **Resolution** = 12-bit; if **Read Value** = 0x800 (2048d):
 
-> ![Host session](doc/images/icon_host.jpg) `Voltage = VRef / FS x Read Value = 3.3 / 4095 x 2048 = 1.65 V`
+> ![Host session](../../doc/images/icon_host.jpg) `Voltage = VRef / FS x Read Value = 3.3 / 4095 x 2048 = 1.65 V`
 
 ### - Enabling/Disabling the ADC channel
 
@@ -339,7 +339,7 @@ Once initialized, an ADC channel can be enabled or disabled at any time using th
 
 > The following piece of code will completely disable the adc0 component:
 
-> ![Host session](doc/images/icon_host.jpg) `icapture_enable(icpin0, FALSE);`
+> ![Host session](../../doc/images/icon_host.jpg) `icapture_enable(icpin0, FALSE);`
 
 > This component can be enabled again at a later time, and it will remain with its configured settings and last counter value.
 
@@ -362,7 +362,7 @@ The hardware init routine _sys_hw_init()_ automatically configures the ADC chann
 
 > The following piece of code configures the ADC channels to 8-bit resolution and reduced power consumption:
 
-> ![Host session](doc/images/icon_host.jpg) `adc_config(ADC_CFG_MODE_8BIT | ADC_CFG_OPTIMIZE_FOR_POWER);`
+> ![Host session](../../doc/images/icon_host.jpg) `adc_config(ADC_CFG_MODE_8BIT | ADC_CFG_OPTIMIZE_FOR_POWER);`
 
 ## API Reference
 
@@ -460,7 +460,7 @@ The second step is configuring power management mode in the power management com
 
 > A ready to use example making use of this mode is available at **examples\PowerManagement\ZigBee\Long_Time_Sleeping_Sensor**. See the example Readme.txt file for details.
 
-> ![Tip](doc/images/icon_tip.jpg) *Don't forget to configure the coordinator's radio parameters as described in the example's Readme.txt file.*
+> ![Tip](../../doc/images/icon_tip.jpg) *Don't forget to configure the coordinator's radio parameters as described in the example's Readme.txt file.*
 
 * **Cyclic sleep:**
 
@@ -468,9 +468,9 @@ The second step is configuring power management mode in the power management com
 
 > The CPU has some control over the radio as it can prematurely awaken the radio using the     pm_set_radio_mode(PM_MODE_RUN) command. This is useful for applications in cyclic sleep mode when they want to transmit data as it will assure that the radio is ON at the time of the transmission.
 
-> ![Warning](doc/images/icon_warning.jpg) **The radio will go to sleep itself in this configuration mode after some time,	even if CPU does not call the pm_set_radio_mode(PM_MODE_STOP) command.**
+> ![Warning](../../doc/images/icon_warning.jpg) **The radio will go to sleep itself in this configuration mode after some time,	even if CPU does not call the pm_set_radio_mode(PM_MODE_STOP) command.**
 
-> ![Warning](doc/images/icon_warning.jpg) **The radio and CPU sleep synchronization process is important when using	this power management mode to prevent an undesired awakening of the CPU. This subject will be explained later.**
+> ![Warning](../../doc/images/icon_warning.jpg) **The radio and CPU sleep synchronization process is important when using	this power management mode to prevent an undesired awakening of the CPU. This subject will be explained later.**
 
 > In cyclic sleep mode there are several parameters that can be configured in the power management component:
 
@@ -499,7 +499,7 @@ The second step is configuring power management mode in the power management com
 
 > See the examples Readme.txt files for details.
 
-> ![Tip](doc/images/icon_tip.jpg) *Don't forget to configure the coordinator's radio parameters as described in the example's Readme.txt file.*
+> ![Tip](../../doc/images/icon_tip.jpg) *Don't forget to configure the coordinator's radio parameters as described in the example's Readme.txt file.*
 
 ### Usage
 
@@ -507,7 +507,7 @@ Use the Power Management API to put the CPU and radio into the desired power sta
 
 The Power Management API provides basic functions for putting the CPU and radio into desired power states, as well as a function used to query the state of the radio. The examples provided within this guide cover most of the typical implementations doing ZigBee communication while also performing power management. They show how, when, and where to use (and not to use) these functions in order to achieve the desired functionality, while also saving as much power as possible and maintaining radio and CPU sleep synchronization.
 
-> ![Tip](doc/images/icon_tip.jpg) *There is a function to know which source caused the CPU to wake up, check "pm_get_wakeup_source()" in the [API Reference](http://exsilium.github.io/xbee-sdk-doc/group__cpu__pm.html)*
+> ![Tip](../../doc/images/icon_tip.jpg) *There is a function to know which source caused the CPU to wake up, check "pm_get_wakeup_source()" in the [API Reference](http://exsilium.github.io/xbee-sdk-doc/group__cpu__pm.html)*
 
 ### Radio and CPU sleep synchronization
 
@@ -519,7 +519,7 @@ It was stated in the signals involved in power management section that the CPU a
 
 To begin the process of synchronization while going to sleep issue the following code:
 
-> ![Host session](doc/images/icon_host.jpg)
+> ![Host session](../../doc/images/icon_host.jpg)
 
 ```
 pm_set_radio_mode(PM_MODE_STOP);
@@ -533,7 +533,7 @@ The first function within this code makes the CPU raise the SLEEP_RQ pin, lettin
 
 To resolve this issue, you can add a while loop which will wait for the radio to turn off:
 
-> ![Host session](doc/images/icon_host.jpg)
+> ![Host session](../../doc/images/icon_host.jpg)
 
 ```
 pm_set_radio_mode(PM_MODE_STOP);
@@ -552,7 +552,7 @@ Depending on the amount of time configured for the Time before sleep (ST) parame
 
 To resolve this issue, use the following code:
 
-> ![Host session](doc/images/icon_host.jpg)
+> ![Host session](../../doc/images/icon_host.jpg)
 
 ```
 pm_set_radio_mode(PM_MODE_STOP);
@@ -579,7 +579,7 @@ After the CPU is awoken, depending on the application, you may want to assure th
 
 First, issue the following code:
 
-> ![Host session](doc/images/icon_host.jpg)
+> ![Host session](../../doc/images/icon_host.jpg)
 
 ```
 pm_set_cpu_mode(PM_MODE_STOP, WAIT_INFINITE); /* Start sleeping */
@@ -594,7 +594,7 @@ This approach will not wait for the radio to turn on. The radio will awaken quit
 
 To resolve this issue, you can add a while loop which will wait for the radio to turn on before transmitting any data:
 
-> ![Host session](doc/images/icon_host.jpg)
+> ![Host session](../../doc/images/icon_host.jpg)
 
 ```
 pm_set_cpu_mode(PM_MODE_STOP, WAIT_INFINITE); /* Start sleeping */
@@ -674,7 +674,7 @@ Special care has to be taken when configuring the DigiMesh network's sleep param
 
 Although it is not necessary to specify a preferred sleep coordinator, it is often useful to select a node for this purpose to improve network performance. A node which is centrally located in the network can serve as a good sleep coordinator to minimize the number of hops a sync message must take to get across the network. A sleep support node and/or a node which is mains powered may be agood candidate.
 
-> ![Tip](doc//images/icon_tip.jpg) *It's recommended that you read the "Synchronous Sleep Operation" chapter from the [XBee-PRO DigiMesh RF Modules Product Manual](http://ftp1.digi.com/support/documentation/90000903_E.pdf) to learn more about how to configure a DigiMesh network.*
+> ![Tip](../../doc/images/icon_tip.jpg) *It's recommended that you read the "Synchronous Sleep Operation" chapter from the [XBee-PRO DigiMesh RF Modules Product Manual](http://ftp1.digi.com/support/documentation/90000903_E.pdf) to learn more about how to configure a DigiMesh network.*
 
 Power management mode can be set to two different modes: synchronous cyclic sleep and synchronous sleep support:
 
@@ -701,7 +701,7 @@ Power management mode can be set to two different modes: synchronous cyclic slee
 
 > A sleep support node will only transmit normal data when the other nodes in the sleeping network are awake. Sleep support nodes are especially useful when used as preferred sleep coordinator nodes and as aids in adding new nodes to a sleeping network.
 
-> ![Tip](doc/images/icon_tip.jpg) *Because sleep support nodes do not sleep, they should be mains powered.*
+> ![Tip](../../doc/images/icon_tip.jpg) *Because sleep support nodes do not sleep, they should be mains powered.*
 
 > As both radio and cpu are always on, there is no need to synchronize them and the main loop of your application will look like an application without power management.
 
@@ -729,7 +729,7 @@ It was stated in the signals involved in power management section that the CPU a
 
 The process of synchronization while going to sleep is implemented with the following code:
 
-> ![Host session](doc/images/icon_host.jpg)
+> ![Host session](../../doc/images/icon_host.jpg)
 
 ```
 /* Enter cpu in low power while radio is in low power */
@@ -755,7 +755,7 @@ After the CPU is awakened, depending on the application, you may want to assure 
 
 The process of synchronization while going to sleep is implemented with the following code:
 
-> ![Host session](doc/images/icon_host.jpg)
+> ![Host session](../../doc/images/icon_host.jpg)
 
 ```
    ...
@@ -787,7 +787,7 @@ There are several possible wake sources: radio, RTC, IRQs, etc. These sources ca
 * If it was the radio through the ON/<span style="text-decoration: overline;">SLEEP</span> pin who woke the CPU the second "if" clause in the above code will pass; the 'radio Awaked' message will be displayed and the 'radio_ready' variable will be set to TRUE signaling the application that it can send any queued data though the air. This is also a good point to perform some operations like node discovery as the radio is in the beginning of its wake period.
 * If some other CPU wake sources woke the CPU, the radio remains asleep, the second "if" clause will not pass so the	'radio_ready' variable will remain FALSE. The awakened application will know that it can do some operations like collecting and queuing	samples but can't send them through the air as the radio is asleep. When these operations are finished, it will go to sleep again thanks	to the first "if" clause as the radio is still sleeping.
 
-> ![Tip](doc/images/icon_tip.jpg) *There is a function to know which source caused the CPU to wake up, check "pm_get_wakeup_source()" in the [API Reference](http://exsilium.github.io/xbee-sdk-doc/group__cpu__pm.html)*
+> ![Tip](../../doc/images/icon_tip.jpg) *There is a function to know which source caused the CPU to wake up, check "pm_get_wakeup_source()" in the [API Reference](http://exsilium.github.io/xbee-sdk-doc/group__cpu__pm.html)*
 
 ### API Reference
 
@@ -801,7 +801,7 @@ You can find the full API documentation of this component in the [API Reference]
 
 Programmable XBee modules do not have a hardware 1-Wire controller; this functionality is implemented through bit-banging over a standard GPIO.
 
-> ![Warning](doc/images/icon_warning.jpg) **The 1-Wire driver disables interrupts for small periods of time (each bit transmission and reception). This may affect handling of other interrupts, such as GPIOs, RTC, etc.**
+> ![Warning](../../doc/images/icon_warning.jpg) **The 1-Wire driver disables interrupts for small periods of time (each bit transmission and reception). This may affect handling of other interrupts, such as GPIOs, RTC, etc.**
 
 ## Signals
 
@@ -843,7 +843,7 @@ All 1-Wire transfers normally start with reset and presence pulse that can be ac
 
 > This piece of code performs a reset on the 1-Wire bus:
 
-> ![Host session](doc/images/icon_host.jpg) `one_wire_reset();`
+> ![Host session](../../doc/images/icon_host.jpg) `one_wire_reset();`
 
 ### - Addressing
 
@@ -875,7 +875,7 @@ There are two possible ways to address a device:
 
 > This piece of code reads into rombuf buffer the connected device's ROM code:
 
-> ![Host session](doc/images/icon_host.jpg) `one_wire_read_rom(rombuf);`
+> ![Host session](../../doc/images/icon_host.jpg) `one_wire_read_rom(rombuf);`
 
 * **one_wire_skip_rom(void)**
 
@@ -885,7 +885,7 @@ There are two possible ways to address a device:
 
 > This piece of code avoids sending full 8 byte ROM in each transfer:
 
-> ![Host session](doc/images/icon_host.jpg) `one_wire_skip_rom();`
+> ![Host session](../../doc/images/icon_host.jpg) `one_wire_skip_rom();`
 
 * Multiple devices on the 1-Wire bus:
 
@@ -901,7 +901,7 @@ There are two possible ways to address a device:
 
 > This piece of code searches up to 3 devices on the 1-Wire bus and store its ROM codes on rombuf:
 
-> ![Host session](doc/images/icon_host.jpg) `one_wire_search(rombuf, 3);`
+> ![Host session](../../doc/images/icon_host.jpg) `one_wire_search(rombuf, 3);`
 
 * **one_wire_address(uint8_t *romcode)**
 
@@ -911,7 +911,7 @@ There are two possible ways to address a device:
 
 > This piece of code address a device matching the previously established ROM address:
 
-> ![Host session](doc/images/icon_host.jpg) `one_wire_address(rom)`
+> ![Host session](../../doc/images/icon_host.jpg) `one_wire_address(rom)`
 
 ### - Read/Write operations
 
@@ -929,7 +929,7 @@ See the API documentation for more details.
 
 > This piece of code sends the read clock command to the DS1904 RTC:
 
-> ![Host session](doc/images/icon_host.jpg) `one_wire_write_byte(DS1904_READ_CLOCK);`
+> ![Host session](../../doc/images/icon_host.jpg) `one_wire_write_byte(DS1904_READ_CLOCK);`
 
 * **one_wire_read_byte(uint8_t *rxbyte)**
 
@@ -939,7 +939,7 @@ See the API documentation for more details.
 
 > This piece of code reads a byte:
 
-> ![Host session](doc/images/icon_host.jpg) `one_wire_read_byte(&amp;byte);`
+> ![Host session](../../doc/images/icon_host.jpg) `one_wire_read_byte(&amp;byte);`
 
 * **one_wire_write(const uint8_t *txbuf, uint8_t len)**
 
@@ -949,7 +949,7 @@ See the API documentation for more details.
 
 > This piece of code sends 5 bytes stored in txbuf:
 
-> ![Host session](doc/images/icon_host.jpg) `one_wire_write(txbuf, 5);`
+> ![Host session](../../doc/images/icon_host.jpg) `one_wire_write(txbuf, 5);`
 
 * **one_wire_read(uint8_t *rxbuf, uint8_t len)**
 
@@ -959,7 +959,7 @@ See the API documentation for more details.
 
 > This piece of code reads 9 bytes in the scratchpad buffer:
 
-> ![Host session](doc/images/icon_host.jpg) `ret = one_wire_read(scratchpad, 9);`
+> ![Host session](../../doc/images/icon_host.jpg) `ret = one_wire_read(scratchpad, 9);`
 
 ### - End of transfer
 
@@ -973,7 +973,7 @@ All 1-Wire transfers may end with 'reset and presence pulse' which can be achiev
 
 > This piece of code performs a reset on the 1-Wire bus:
 
-> ![Host session](doc/images/icon_host.jpg) `one_wire_reset();`
+> ![Host session](../../doc/images/icon_host.jpg) `one_wire_reset();`
 
 ## Peripheral drivers and samples
 
@@ -999,7 +999,7 @@ standard, named by Motorola, which operates in full duplex mode. Devices communi
 
 The SPI bus specifies four logic signals:
 
-![SPI connection](api_doc/pg/images/spi_connection.jpg)
+![SPI connection](images/spi_connection.jpg)
 
 * **SCLK:** serial clock (output from master)
 * **MOSI; SIMO:** master output, slave input (output from master)
@@ -1011,7 +1011,7 @@ Multiple slave devices are allowed with individual slave select lines. In the Pr
 
 ### - Clock polarity and phase
 
-![Clock modes](api_doc/pg/images/spi_clocks.jpg)
+![Clock modes](images/spi_clocks.jpg)
 
 In addition to setting the clock frequency, the master must also configure the clock polarity and phase with respect to the data. Depending on the values of the clock phase and clock polarity, data is captured at different points of the clock signal:
 
@@ -1040,11 +1040,11 @@ Once the SPI component is added to the Smart Editor, you will need to configure 
 * **Baud-rate divider:** Divides the input clock by the selected value. This clock	is the input of the SPI baud-rate divider.
 * **Pins template:** Only available in SMT modules (S2C and S8), this option determines through which pins the SPI signals will be multiplexed.
 
-> ![Warning](doc/images/icon_warning.jpg) **If you are using secondary pinout with an S2C module please see [Secondary pinout in S2C modules](#secondary-pinout-in-s2c-modules)** 
+> ![Warning](../../doc/images/icon_warning.jpg) **If you are using secondary pinout with an S2C module please see [Secondary pinout in S2C modules](#secondary-pinout-in-s2c-modules)** 
 
 The working frequency of the SPI interface is calculated using the following formula:
 
-> ![Host session](doc/images/icon_host.jpg) `((System clock / Bus Clock divider) / prescaler) / Baud-rate divider`
+> ![Host session](../../doc/images/icon_host.jpg) `((System clock / Bus Clock divider) / prescaler) / Baud-rate divider`
 
 The component will be automatically initialized and configured by the hardware initialization process of the application.
 
@@ -1079,7 +1079,7 @@ the SPI interface. To do so, use the following command in your application code:
 
 > This piece of code will transfer 8 bytes from the "data" buffer to the SPI peripheral component named "eeprom":
 
-> ![Host session](doc/images/icon_host.jpg) `spi_transfer(eeprom, data, null, 8);`
+> ![Host session](../../doc/images/icon_host.jpg) `spi_transfer(eeprom, data, null, 8);`
 
 ## Peripheral drivers and samples
 
@@ -1104,12 +1104,12 @@ To change this parameter follow these steps:
 - Go to the **Modem Configuration** tab.
 - Press **Read** button to obtain all current radio parameters.
 
-> ![Terminal view](api_doc/pg/images/spi_xctu1.jpg)
+> ![Terminal view](images/spi_xctu1.jpg)
 
 - Look for **"DIO15 - P5 Configuration"** field under **"I/O setiings"**
 - Change it to **"0 - Disabled"**
 
-> ![Terminal view](api_doc/pg/images/spi_xctu2.jpg)
+> ![Terminal view](images/spi_xctu2.jpg)
 
 - Click on **Write** button and wait for process to finish.
 - Close **X-CTU** and cycle device's power.
@@ -1143,7 +1143,7 @@ This interface does not have any configuring parameters but the baud rate and ho
 
 The baud rate is calculated using the following formula:
 
-> ![Host session](doc/images/icon_host.jpg) `I²C Baudrate = Bus Frequency / (MUL x SCLdivider)`
+> ![Host session](../../doc/images/icon_host.jpg) `I²C Baudrate = Bus Frequency / (MUL x SCLdivider)`
 
 For the above formula the values are:
 
@@ -1167,7 +1167,7 @@ The I²C API includes a function to specify which slave device is the receiver o
 
 > The following piece of code will set the destination address to 0x50:
 
-> ![Host session](doc/images/icon_host.jpg) `i2c_set_addr(0x50);`
+> ![Host session](../../doc/images/icon_host.jpg) `i2c_set_addr(0x50);`
 
 ### - Sending data
 
@@ -1181,7 +1181,7 @@ Once the I²C slave address is set, there are two functions used to send (write)
 
 > The following piece of code will transfer 8 bytes from the "data" buffer to the I²C slave, appending the STOP signal when finished:
 
-> ![Host session](doc/images/icon_host.jpg) `i2c_write(data, 8);`
+> ![Host session](../../doc/images/icon_host.jpg) `i2c_write(data, 8);`
 
 * **ssize_t i2c_write_no_stop(const void *buf, size_t len)**
 	* ***buf**: A pointer to the buffer containing the bytes to be transferred.
@@ -1191,7 +1191,7 @@ Once the I²C slave address is set, there are two functions used to send (write)
 
 > The following piece of code will transfer 8 bytes from the "data" buffer to the I²C slave, **not** appending the STOP signal when finished:
 
-> ![Host session](doc/images/icon_host.jpg) `i2c_write_no_stop(data, 8);`
+> ![Host session](../../doc/images/icon_host.jpg) `i2c_write_no_stop(data, 8);`
 
 In the examples above the returned value is ignored. However, you should check to see if this value isequal to a _len_ argument, or at least to see if it is equal or greater than 0 to ensure that no errors occurred.
 
@@ -1209,7 +1209,7 @@ The API implements one function to receive (read) data from the I²C bus.
 
 > The following piece of code will read 8 bytes from the I²C slave device and store the in "data":
 
-> ![Host session](doc/images/icon_host.jpg) `i2c_read(data, 8);`
+> ![Host session](../../doc/images/icon_host.jpg) `i2c_read(data, 8);`
 
 > In the example above the returned value is ignored. However, you should check to see if this value is equal to a _len_ argument, or at least to see if it is equal or greater than 0 to ensure that no errors occurred.
 
@@ -1288,11 +1288,11 @@ If the serial console is enabled, the UART is intended to be used with the _Stan
 
 > The following piece of code will print in the serial console the value of the _ret_value_ uint8_t variable in hexadecimal representation:
 
-> ![Host session](doc/images/icon_host.jpg) `printf("Returned value: 0x%x:", ret_val);`
+> ![Host session](../../doc/images/icon_host.jpg) `printf("Returned value: 0x%x:", ret_val);`
 
 > Assuming that _ret_val = 255_, the serial output will be:
 
-> ![Host session](doc/images/icon_host.jpg)  `Returned value: 0xFF`
+> ![Host session](../../doc/images/icon_host.jpg)  `Returned value: 0xFF`
 
 * **int scanf(const char *format, ...)**
 
@@ -1302,7 +1302,7 @@ If the serial console is enabled, the UART is intended to be used with the _Stan
 
 > The following piece of code will read from the serial console an integer and save it in the int16_t _read_val_ variable:
 
-> ![Host session](doc/images/icon_host.jpg) `scanf("%d", &amp;read_val);`
+> ![Host session](../../doc/images/icon_host.jpg) `scanf("%d", &amp;read_val);`
 
 > Notice that the variable _read_val_ is passed as a pointer.
 
@@ -1322,7 +1322,7 @@ To send data through the UART the following function must be used:
 
 > The following piece of code will send through the serial port all bytes of _data_ array:
 
-> ![Host session](doc/images/icon_host.jpg) `uart_write(data, sizeof(data));`
+> ![Host session](../../doc/images/icon_host.jpg) `uart_write(data, sizeof(data));`
 
 > In the examples above the returned value is ignored. However, you should check to see if this value is equal to a _len_ argument, or at least to see if it is equal or greater than 0 to ensure that no errors occurred.
 
@@ -1338,7 +1338,7 @@ To read from the UART the following function must be used:
 
 > The following piece of code will read from the UART buffer up to 8 bytes and save them in _data_received_ array:
 
-> ![Host session](doc/images/icon_host.jpg) `uart_read(data_received, 8);`
+> ![Host session](../../doc/images/icon_host.jpg) `uart_read(data_received, 8);`
 
 > In the examples above the returned value is ignored, However, tou should check to see if this value is equal to a _len_ argument, or at least to see if it is equal or greater than **0** to ensure that no errors occurred.
 
@@ -1356,7 +1356,7 @@ Reading from UART can be done at any time, but it is recommended that you check 
 
 > The following piece of code will read a byte from the UART and echo it to the serial output (Serial echo example):
 
-> ![Host session](doc/images/icon_host.jpg)
+> ![Host session](../../doc/images/icon_host.jpg)
 
 ```
 #if (UART_CFG_RX_WATERMARK &gt; 0) &amp;&amp; (ENABLE_STDIO_PRINTF_SCANF == 0) && defined(ENABLE_UART)
@@ -1419,11 +1419,11 @@ Once you have added an input capture to your project, you  must configure it. To
 
 - Call the configuration function in the application code.
 
-> ![Host session](doc/images/icon_host.jpg) `icapture_config(xpin_t pin,  uint8_t edge, bool_t enable, uint32_t max_u_secs)`
+> ![Host session](../../doc/images/icon_host.jpg) `icapture_config(xpin_t pin,  uint8_t edge, bool_t enable, uint32_t max_u_secs)`
 
 * The first parameter of this function **(pin)** is the XBee pin to be configured.		However, the macro name associated with this pin should be used instead of the pin name.
 
-> ![Warning](doc/images/icon_warning.jpg) **Using "xpin_t types" instead of the component's macro name will work only if the pin matches what is declared in Smart-Editor; otherwise the module will not work properly.**
+> ![Warning](../../doc/images/icon_warning.jpg) **Using "xpin_t types" instead of the component's macro name will work only if the pin matches what is declared in Smart-Editor; otherwise the module will not work properly.**
 
 * The second parameter **(edge)** is a byte indicating the interrupt active edge. This option may be set with the following macros:
 	* Macros to configure the input capture **edge**:
@@ -1436,7 +1436,7 @@ Once you have added an input capture to your project, you  must configure it. To
 
 > **Usage example:**
 
-> ![Host session](doc/images/icon_host.jpg) `icapture_config(icpin, ICAPTURE_RISING, TRUE, 1000000);`
+> ![Host session](../../doc/images/icon_host.jpg) `icapture_config(icpin, ICAPTURE_RISING, TRUE, 1000000);`
 
 ## Usage
 
@@ -1460,9 +1460,9 @@ The input capture API exposes a method to convert the count value to microsecond
 
 > This piece of code will return the time elapsed between two captures in microseconds:
 
-> ![Host session](doc/images/icon_host.jpg) `usecs = icapture_captcount_to_usec(icpin0, second_capture - first_capture);`
+> ![Host session](../../doc/images/icon_host.jpg) `usecs = icapture_captcount_to_usec(icpin0, second_capture - first_capture);`
 
-> ![Warning](doc/images/icon_warning.jpg) **Notice that in this case second_capture is assumed to be bigger than first_capture. A counter overflow may occur and this function has no way to correct this issue.**
+> ![Warning](../../doc/images/icon_warning.jpg) **Notice that in this case second_capture is assumed to be bigger than first_capture. A counter overflow may occur and this function has no way to correct this issue.**
 
 ### - Enabling/Disabling the input capture
 
@@ -1478,7 +1478,7 @@ Once initialized, the input capture can be enabled or disabled at any time with 
 
 > This piece of code will disable completely icpin0 component:
 
-> ![Host session](doc/images/icon_host.jpg) `icapture_enable(icpin0, FALSE);`
+> ![Host session](../../doc/images/icon_host.jpg) `icapture_enable(icpin0, FALSE);`
 
 > Component can be enabled at a later time, and it will remain with configured settings and last counter value.
 
@@ -1494,7 +1494,7 @@ You can reconfigure the input capture component at any time without disabling th
 
 > This piece of code will read the active edge of component icpin0:
 
-> ![Host session](doc/images/icon_host.jpg) `icapture_get_mode(icpin0);`
+> ![Host session](../../doc/images/icon_host.jpg) `icapture_get_mode(icpin0);`
 
 * **icapture_set_mode(xpin_t pin, uint8_t mode)**
 
@@ -1504,7 +1504,7 @@ You can reconfigure the input capture component at any time without disabling th
 
 > This piece of code will set the active edge of component icpin0 to falling edges:
 
-> ![Host session](doc/images/icon_host.jpg) `icapture_set_mode(icpin0, ICAPTURE_FALLING);`
+> ![Host session](../../doc/images/icon_host.jpg) `icapture_set_mode(icpin0, ICAPTURE_FALLING);`
 
 * **icapture_irq_enable(xpin_t pin, bool_t enable)**
 
@@ -1514,7 +1514,7 @@ You can reconfigure the input capture component at any time without disabling th
 
 > This piece of code will enable the interrupt of component icpin0 (which had to be configured previously):
 
-> ![Host session](doc/images/icon_host.jpg) `icapture_irq_enable(icpin0, TRUE);`
+> ![Host session](../../doc/images/icon_host.jpg) `icapture_irq_enable(icpin0, TRUE);`
 
 ## API Reference
 
@@ -1558,13 +1558,13 @@ Once you have added an output compare to your project, you must configure it. To
 
 - Call the configuration function in the application code.
 
-> ![Host session](doc/images/icon_host.jpg) `ocompare_config(xpin_t pin, bool_t enable, uint32_t max_timeout, uint32_t init_timeout, uint8_t behavior)`
+> ![Host session](../../doc/images/icon_host.jpg) `ocompare_config(xpin_t pin, bool_t enable, uint32_t max_timeout, uint32_t init_timeout, uint8_t behavior)`
 
 > The first parameter of this function **(pin)** is the XBee pin to be configured. However, the macro name associated with this pin should be used instead of the pin name.
 
-> ![Warning](doc/images/icon_warning.jpg) **Using "xpin_t types" instead of the component's macro name will work only if the pin matches which is declared in Smart-Editor; otherwise the module will not work properly.**
+> ![Warning](../../doc/images/icon_warning.jpg) **Using "xpin_t types" instead of the component's macro name will work only if the pin matches which is declared in Smart-Editor; otherwise the module will not work properly.**
 
-> ![Warning](doc/images/icon_warning.jpg) **The timeout should not be less than 100 uS due to API limitations (IRQ and config functions' overheads)**
+> ![Warning](../../doc/images/icon_warning.jpg) **The timeout should not be less than 100 uS due to API limitations (IRQ and config functions' overheads)**
 
 > The second parameter **(enable)** is a boolean indicating whether the interrupt is enabled or disabled. This may be **0**/**1** or the predefined macros **TRUE**/**FALSE**.
 
@@ -1583,7 +1583,7 @@ Once you have added an output compare to your project, you must configure it. To
 
 > This piece of code will configure the output compare component called _ocompare0_ to toggle its associated XBee	pin after 1 second:
 
-> ![Host session](doc/images/icon_host.jpg) `ocompare_config(ocompare0, TRUE, 1000000, 1000000, OCOMPARE_TOGGLE);`
+> ![Host session](../../doc/images/icon_host.jpg) `ocompare_config(ocompare0, TRUE, 1000000, 1000000, OCOMPARE_TOGGLE);`
 
 ## Usage
 
@@ -1601,7 +1601,7 @@ Once initialized, the output compare can be enabled or disabled at any time with
 
 > This piece of code will disable completely ocompare0 component:
 
-> ![Host session](doc/images/icon_host.jpg) `ocompare_enable(ocompare0, FALSE);`
+> ![Host session](../../doc/images/icon_host.jpg) `ocompare_enable(ocompare0, FALSE);`
 
 > Component can be enabled at a later time, and it will remain with configured settings and last counter value.
 
@@ -1618,7 +1618,7 @@ interrupt. To do so as quickly as possible and reduce interrupt overhead, there 
 
 > This piece of code will read the active edge of component icpin0:
 
-> ![Host session](doc/images/icon_host.jpg) `ocompare_get_mode(ocompare0);`
+> ![Host session](../../doc/images/icon_host.jpg) `ocompare_get_mode(ocompare0);`
 
 * **ocompare_set_mode(xpin_t pin, uint8_t behavior)**
 
@@ -1628,7 +1628,7 @@ interrupt. To do so as quickly as possible and reduce interrupt overhead, there 
 
 > This piece of code will set the behavior of pin ocompare0 to 0 when next interrupt occur:
 
-> ![Host session](doc/images/icon_host.jpg) `ocompare_set_mode(ocompare0, OCOMPARE_CLEAR);`
+> ![Host session](../../doc/images/icon_host.jpg) `ocompare_set_mode(ocompare0, OCOMPARE_CLEAR);`
 
 * **ocompare_irq_enable(xpin_t pin, bool_t enable)**
 
@@ -1638,7 +1638,7 @@ interrupt. To do so as quickly as possible and reduce interrupt overhead, there 
 
 > This piece of code will enable the interrupt of component ocompare0 (which had to be configured previously):
 
-> ![Host session](doc/images/icon_host.jpg) `ocompare_irq_enable(ocompare0, TRUE);`
+> ![Host session](../../doc/images/icon_host.jpg) `ocompare_irq_enable(ocompare0, TRUE);`
 
 * **ocompare_set_timeout(xpin_t pin, uint32_t timeout)**
 
@@ -1648,7 +1648,7 @@ interrupt. To do so as quickly as possible and reduce interrupt overhead, there 
 
 > This piece of code will configure the next interrupt of ocompare0 to take place after 50 milliseconds:
 
-> ![Host session](doc/images/icon_host.jpg) `ocompare_set_timeout(ocompare0, 50000);`
+> ![Host session](../../doc/images/icon_host.jpg) `ocompare_set_timeout(ocompare0, 50000);`
 
 ## API Reference
 
@@ -1689,11 +1689,11 @@ Once you have added a PWM to your project, you must configure it. To do so, foll
 
 - Call the configuration function in the application code.
 
-> ![Host session](doc/images/icon_host.jpg) `pwm_config(xpin_t pin, bool_t enable, uint32_t ton, uint32_t period)`
+> ![Host session](../../doc/images/icon_host.jpg) `pwm_config(xpin_t pin, bool_t enable, uint32_t ton, uint32_t period)`
 
 > The first parameter of this function **(pin)** is the XBee pin to be configured. However, the macro name associated with this pin should be used instead of the pin name.
 
-> ![Warning](doc/images/icon_warning.jpg)
+> ![Warning](../../doc/images/icon_warning.jpg)
 
 > Using "xpin_t types" instead of the component's macro name will work only if the pin matches which is declared in Smart-Editor; otherwise the module will not work properly.
 
@@ -1705,13 +1705,13 @@ Once you have added a PWM to your project, you must configure it. To do so, foll
 
 The average value of voltage is calculated using the following formula:
 
-> ![Host session](doc/images/icon_host.jpg) `Vavg = Vcc * ton / period`
+> ![Host session](../../doc/images/icon_host.jpg) `Vavg = Vcc * ton / period`
 
 > **Usage example:**
 
 > This piece of code will configure the PWM component called _p2m0_ with a 10 kHz 75% duty cycle waveform.	Using 3.3V as Vcc, the _pwm0_ component will give a voltage of 2.475V.
 
-> ![Host session](doc/images/icon_host.jpg) `pwm_config(pwm0, TRUE, 75, 100);`
+> ![Host session](../../doc/images/icon_host.jpg) `pwm_config(pwm0, TRUE, 75, 100);`
 
 ## Usage
 
@@ -1729,7 +1729,7 @@ Once initialized the PWM can be enabled or disabled at any time with the followi
 
 > This piece of code will enable the PWM component named _pwm0_ (which had to be configured previously):
 
-> ![Host session](doc/images/icon_host.jpg) `pwm_enable(pwm0, TRUE);`
+> ![Host session](../../doc/images/icon_host.jpg) `pwm_enable(pwm0, TRUE);`
 
 ### - Getting PWM values
 
@@ -1743,7 +1743,7 @@ The PWM API exposes some functions to read PWM values:
 
 > This piece of code will read the waveform associated to xpin pwm0:
 
-> ![Host session](doc/images/icon_host.jpg) `period_usec = pwm_get_period(pwm0);`
+> ![Host session](../../doc/images/icon_host.jpg) `period_usec = pwm_get_period(pwm0);`
 
 * **pwm_get_ton(xpin_t pin)**
 
@@ -1753,7 +1753,7 @@ The PWM API exposes some functions to read PWM values:
 
 > This piece of code will read the ON semiperiod associated to xpin pwm0:
 
-> ![Host session](doc/images/icon_host.jpg) `ton_usec = pwm_get_ton(pwm0);`
+> ![Host session](../../doc/images/icon_host.jpg) `ton_usec = pwm_get_ton(pwm0);`
 
 ### - Changing the positive period
 
@@ -1767,7 +1767,7 @@ It is also possible to change the positive pulse-width of a PWM component at any
 
 > This piece of code will set the positive pulse-width of the pwm0 PWM component with a value of 50 miliseconds:
 
-> ![Host session](doc/images/icon_host.jpg) `pwm_set_ton(pwm0, 50000);`
+> ![Host session](../../doc/images/icon_host.jpg) `pwm_set_ton(pwm0, 50000);`
 
 ## API Reference
 
@@ -1808,7 +1808,7 @@ Once you have added a high resolution timer to your project, you must configure 
 
 - Call the configuration function in the application code.
 
-> ![Host session](doc/images/icon_host.jpg) `timer_config(timer_t timer, bool_t enable, timermode_t mode, uint32_t timeout)`
+> ![Host session](../../doc/images/icon_host.jpg) `timer_config(timer_t timer, bool_t enable, timermode_t mode, uint32_t timeout)`
 
 > The first parameter of this function **(timer)** is the name of the timer component to		configure, defined in the Smart-Editor.
 
@@ -1826,7 +1826,7 @@ Once you have added a high resolution timer to your project, you must configure 
 
 > This piece of code will configure the high resolution timer component called _timer0_ to trigger an interrupt every second just after the configuration:
 
-> ![Host session](doc/images/icon_host.jpg) `icapture_config(timer0, TRUE, PERIODIC, 1000000);`
+> ![Host session](../../doc/images/icon_host.jpg) `icapture_config(timer0, TRUE, PERIODIC, 1000000);`
 
 ## Usage
 
@@ -1853,7 +1853,7 @@ If you configured the timer to be disabled after the configuration process, you 
 
 > This piece of code will enable the timer0 component:
 
-> ![Host session](doc/images/icon_host.jpg) `timer_enable(timer0, TRUE);`
+> ![Host session](../../doc/images/icon_host.jpg) `timer_enable(timer0, TRUE);`
 
 ### - Reconfiguring the component
 
@@ -1867,7 +1867,7 @@ You can reconfigure the high resolution timer component at any time without disa
 
 > This piece of code will read the operation mode of component timer0:
 
-> ![Host session](doc/images/icon_host.jpg) `timer_get_mode(timer0);`
+> ![Host session](../../doc/images/icon_host.jpg) `timer_get_mode(timer0);`
 
 * **timer_set_mode(timer_t timer, uint8_t mode)**
 
@@ -1877,7 +1877,7 @@ You can reconfigure the high resolution timer component at any time without disa
 
 > This piece of code will set the operation mode of component timer0 to PERIODIC:
 
-> ![Host session](doc/images/icon_host.jpg) `timer_set_mode(timer0, PERIODIC:);`
+> ![Host session](../../doc/images/icon_host.jpg) `timer_set_mode(timer0, PERIODIC:);`
 
 * **timer_irq_enable(timer_t timer, bool_t enable)**
 
@@ -1887,7 +1887,7 @@ You can reconfigure the high resolution timer component at any time without disa
 
 > This piece of code will enable the interrupt of component timer0 (which had to be configured previously):
 
-> ![Host session](doc/images/icon_host.jpg) `timer_irq_enable(timer0, TRUE);`
+> ![Host session](../../doc/images/icon_host.jpg) `timer_irq_enable(timer0, TRUE);`
 
 * **timer_get_timeout(timer_t timer)**
 
@@ -1897,7 +1897,7 @@ You can reconfigure the high resolution timer component at any time without disa
 
 > This piece of code will get the timeout (microseconds) of the timer0 component:
 
-> ![Host session](doc/images/icon_host.jpg) `timer_get_timeout(timer0);`
+> ![Host session](../../doc/images/icon_host.jpg) `timer_get_timeout(timer0);`
 
 * **timer_set_timeout(timer_t timer, uint_32)**
 
@@ -1907,7 +1907,7 @@ You can reconfigure the high resolution timer component at any time without disa
 
 > This piece of code will set a period of 5 seconds to the timer0 component:
 
-> ![Host session](doc/images/icon_host.jpg) `timer_set_timeout(timer0, 5000000);`
+> ![Host session](../../doc/images/icon_host.jpg) `timer_set_timeout(timer0, 5000000);`
 
 ## API Reference
 
@@ -2008,7 +2008,7 @@ To set parameters that require an integer as a value (the majority of parameters
 
 > The following piece of code will change the PAN ID to a new one, causing the device to disassociate from its current one:
 
-> ![Host session](doc/images/icon_host.jpg) `xbee_cmd_simple(&amp;xdev, "ID", 0xDEADBEEF);`
+> ![Host session](../../doc/images/icon_host.jpg) `xbee_cmd_simple(&amp;xdev, "ID", 0xDEADBEEF);`
 
 #### - Changing non-numerical parameters
 
@@ -2024,11 +2024,11 @@ There are several AT parameters that do not require an integer as a value. For e
 
 > The following piece of code will change the node identifier to "Programmable XBee":
 
-> ![Host session](doc/images/icon_host.jpg) `xbee_cmd_execute(&amp;xdev, "NI", "Programmable XBee", sizeof("Programmable XBee"));`
+> ![Host session](../../doc/images/icon_host.jpg) `xbee_cmd_execute(&amp;xdev, "NI", "Programmable XBee", sizeof("Programmable XBee"));`
 
 > The following piece of code will execute the erite parameters (WR), causing all current radio parameters to be stored in non-volatile memory:
 
-> ![Host session](doc/images/icon_host.jpg) `xbee_cmd_execute(&amp;xdev, "WR", NULL, 0);`
+> ![Host session](../../doc/images/icon_host.jpg) `xbee_cmd_execute(&amp;xdev, "WR", NULL, 0);`
 
 ### API Reference
 
@@ -2089,7 +2089,7 @@ To set parameters that require an integer as a value (the majority of parameters
 
 > The following piece of code will change the network ID to a new one, causing the device to disassociate from its current network:
 
-> ![Host session](doc/images/icon_host.jpg) `xbee_cmd_simple(&amp;xdev, "ID", 0xD161);`
+> ![Host session](../../doc/images/icon_host.jpg) `xbee_cmd_simple(&amp;xdev, "ID", 0xD161);`
 
 #### - Changing non-numerical parameters
 
@@ -2105,11 +2105,11 @@ There are several AT parameters that do not require an integer as a value. For e
 
 > The following piece of code will change the node identifier to "Programmable XBee":
 
-> ![Host session](doc/images/icon_host.jpg) `xbee_cmd_execute(&amp;xdev, "NI", "Programmable XBee", sizeof("Programmable XBee"));`
+> ![Host session](../../doc/images/icon_host.jpg) `xbee_cmd_execute(&amp;xdev, "NI", "Programmable XBee", sizeof("Programmable XBee"));`
 
 > The following piece of code will execute the write parameters (WR), causing all current radio parameters to be stored in non-volatile memory:
 
-> ![Host session](doc/images/icon_host.jpg) `xbee_cmd_execute(&amp;xdev, "WR", NULL, 0);`
+> ![Host session](../../doc/images/icon_host.jpg) `xbee_cmd_execute(&amp;xdev, "WR", NULL, 0);`
 
 ### API Reference
 
@@ -2139,7 +2139,7 @@ This field determines processing speed and affects power consumption. If a low p
 
 Along with _System Clock_, this field determines the system's bus clock frequency with the following formula:
 
-![Host session](doc/images/icon_host.jpg) `Bus clock frequency = System Clock / Bus clock divider`
+![Host session](../../doc/images/icon_host.jpg) `Bus clock frequency = System Clock / Bus clock divider`
 
 It is important to bear in mind that this value affects all peripherals and there are some (like SPI and I²C ports) that determine their baud rate or clock frequency using the bus clock frequency as a reference.
 
@@ -2167,7 +2167,7 @@ This is a module that detects when power supply voltage is lower than a threshol
 * **Low-Voltage Behavior:** selects which action will be performed when the LVD is triggered: the microprocessor will be **Reset** or a user **Interrupt** will be called. If the "Interrupt" option is selected, the callback code will be added automatically to the _main.c_ file.
 * **Low-Voltage Trigger:** determines the threshold for the interrupt. Only 1.84 V and 2.15 V are available.
 
-> ![Warning](doc/images/icon_warning.jpg) The LVD is level-triggered, so the interrupt will be entered or the module will be reset as long as the voltage level is less than or equal to the trigger.
+> ![Warning](../../doc/images/icon_warning.jpg) The LVD is level-triggered, so the interrupt will be entered or the module will be reset as long as the voltage level is less than or equal to the trigger.
 
 **Low-Voltage Detection Functions**
 
@@ -2177,7 +2177,7 @@ This is a module that detects when power supply voltage is lower than a threshol
 
 The following piece of code changes the LVD trigger to 2.15 V:
 
-> ![Host session](doc/images/icon_host.jpg) `lvd_set_trigger(0);}`
+> ![Host session](../../doc/images/icon_host.jpg) `lvd_set_trigger(0);}`
 
 * **void lvd_irq_enable(bool_t enable)** This function enables or disables the LVD mechanism. It is useful to avoid a continuous call of the user-interrupt.
 
@@ -2185,7 +2185,7 @@ The following piece of code changes the LVD trigger to 2.15 V:
 
 The following piece of code disables the LVD interrupt:
 
-> ![Host session](doc/images/icon_host.jpg) `lvd_irq_enable(FALSE);`
+> ![Host session](../../doc/images/icon_host.jpg) `lvd_irq_enable(FALSE);`
 
 * **bool_t lvd_flag(void)** This function polls the LVD flag. This is useful when the interrupt is disabled.
 
@@ -2193,7 +2193,7 @@ The following piece of code disables the LVD interrupt:
 
 The following piece of code prints a warning through the serial console when the LVD is asserted:
 
-> ![Host session](doc/images/icon_host.jpg) `if (lvd_flag) {printf("WARNING: Low Voltage\n");}`
+> ![Host session](../../doc/images/icon_host.jpg) `if (lvd_flag) {printf("WARNING: Low Voltage\n");}`
 
 * **void lvd_clear_flag(void)** This function clears the LVD flag. This is useful when the interrupt is disabled.
 
@@ -2201,7 +2201,7 @@ The following piece of code prints a warning through the serial console when the
 
 The following piece of code clears the LVD flag:
 
-> ![Host session](doc/images/icon_host.jpg) `lvd_clear_flag();}`
+> ![Host session](../../doc/images/icon_host.jpg) `lvd_clear_flag();}`
 
 ### API Reference
 

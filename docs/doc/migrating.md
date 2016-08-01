@@ -9,14 +9,14 @@ This new version of the library added, removed or changed some of the settings i
 The first step in the process of migrating a project to the latest version of the SDK is to link the new library sources. To do so follow these steps:
 
 - Right-click the project in CodeWarrior's Project list and select Properties.
-![CPX Home](doc/images/img060p.jpg)
+![CPX Home](images/img060p.jpg)
 - In the dialog that opens, click on **XBee Properties**.
 - Select **Select an XBee Firmware Library Version** under the **XBee Firmware Library settings**.
 - Select the new library version.
 - Click the **Apply** button; a message will pop-up.
-![CPX Home](doc/images/img060q.jpg)
+![CPX Home](images/img060q.jpg)
 - Click **Yes**; the project sources will automatically be refreshed.
-![CPX Home](doc/images/img060r.jpg)
+![CPX Home](images/img060r.jpg)
 - If the refresh was successful, click **OK** to close the Properties dialog.
 ![CPX Home](images/img060s.jpg)
 
@@ -26,27 +26,27 @@ Bear in mind that some settings' options have changed, so you should verify that
 
 The settings that were removed in this version (for example, _Cluster ID_ field in the **XBee Communications** component) are ignored. However, they still remain in **config.xml**. The settings that are now deprecated in the new library are highlighted in red by the Smart-Editor.
 
-![CPX Home](doc/images/img060t.jpg)
+![CPX Home](images/img060t.jpg)
 
 Although these deprecated settings are not harmful (the project will still build and run properly), you might want to remove them from the *config.xml* file. To do so, follow these steps:
 
 - Select the *config.xml* file. Right-click on it, then select **Open with...&gt; Syntax Coloring Editor**.
 
-> ![CPX Home](doc/images/img060u.jpg)
+> ![CPX Home](images/img060u.jpg)
 
 - In this editor, look for the setting that is causing the error. For example _pan_id_, that in this version was renamed to _zigbee_id_
 
-> ![CPX Home](doc/images/img060v.jpg)
+> ![CPX Home](images/img060v.jpg)
 
 - Delete the lines that correspond to this setting.
 
-> ![CPX Home](doc/images/img060w.jpg)
+> ![CPX Home](images/img060w.jpg)
 
 - Repeat this process for all settings that need to be corrected.
 
 - To avoid CodeWarrior opening the *config.xml* file every time with **Syntax Coloring Editor**, right-click this file	and select **Open with...** and then select **XBee Smart Editor**.
 
-> ![CPX Home](doc/images/img060x.jpg)
+> ![CPX Home](images/img060x.jpg)
 
 # 8.2. Migrating the code
 
