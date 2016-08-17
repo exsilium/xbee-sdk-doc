@@ -125,7 +125,13 @@ It also uses these frames and symbols:
 
 > ![Warning](images/icon_warning.jpg) **This is a warning. It helps solve or to avoid common mistakes or problems.**
 
+!!! warning
+    **This is a warning. It helps solve or to avoid common mistakes or problems.**
+
 > ![Tip](images/icon_tip.jpg) *This is a hint. It contains useful information about a topic.*
+
+!!! tip
+    *This is a hint. It contains useful information about a topic.*
 
 > ![Teach](images/icon_teach.jpg) *This means that you have just learned how to do something.*
 
