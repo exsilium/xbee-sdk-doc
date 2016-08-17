@@ -18,3 +18,5 @@ pages:
 - [doc/tips_tricks.md, "XBee Extensions User's Guide", '10. Tips & Tricks']
 - [doc/limitations.md, "XBee Extensions User's Guide", '11. Known issues and limitations']
 theme: readthedocs
+markdown_extensions:
+- markdown.extensions.admonition
